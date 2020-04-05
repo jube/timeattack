@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.3.3" orientation="orthogonal" renderorder="right-down" width="12" height="12" tilewidth="128" tileheight="128" infinite="0" nextlayerid="17" nextobjectid="1">
+ <tileset firstgid="1" name="tileset_road" tilewidth="128" tileheight="128" spacing="2" margin="1" tilecount="90" columns="18">
+  <image source="tileset_road.png" width="2340" height="650"/>
+ </tileset>
+ <group id="13" name="Rally02">
+  <layer id="14" name="SSXX" width="12" height="12" visible="0">
+   <data encoding="base64" compression="zlib">
+   eJxjYMAErkDsjkV8uAM2IGZBwuEE1EsAsTcQa0BxJBF2MJLoJnUgZgJiVhL1EbKHBQ1bAzE7HvUaWLAkEAMA7UoDZQ==
+  </data>
+  </layer>
+  <layer id="16" name="SS03" width="12" height="12">
+   <data encoding="base64" compression="zlib">
+   eJyFkbkKgDAQRFNYeNQiePQWHn/gUYj//0eOkIFhTWLgkYWdPTJx7nsucPs4BwUoQRXQvqcGjY9b0IEeDFKfCQtYTS1v1o/CAc6IfgKz6R+aRf0GdtM/NIv60P4KfUntr9AX+46Y11aX8vrPH3qh/8s8c+qP9cJJnrkH+EsOlQ==
+  </data>
+  </layer>
+  <layer id="15" name="SS02" width="12" height="12" visible="0">
+   <data encoding="base64" compression="zlib">
+   eJyt0TkKgEAQRNEJDFxiEVxyA5cbuATi/W/kTxqGsToQLHjJ0DTVTAjvXLjFu5cazYf5CTOySInKmd+wY4z0GJCjSHYpC1a06JJdyoHT6apYf9VVsf4q6ibrr6Jusv4qf/7vA6D2Cck=
+  </data>
+  </layer>
+  <layer id="11" name="SS01" width="12" height="12" visible="0">
+   <data encoding="base64" compression="zlib">
+   eJx90DsLwlAMhuEMRasOdSnehzp18DLo7GUQ//8/8j2QQPyoBh56aMLJSWozm6DCFDO0WKAeyK2xQY8tdqn+X87SWb9DuRIHHHHCOeVG/k/rb7jjgafcWd61kvoSDeY+o/bJb6hch73PqH3yG3p3wdW+o/U7x7LjELuOWPo+dcchdq09Sv0Lb8npTL9mj9CZ8uwf9W4N+g==
+  </data>
+  </layer>
+ </group>
+ <group id="12" name="Rally01" visible="0">
+  <layer id="10" name="SS10" width="12" height="12" visible="0">
+   <properties>
+    <property name="finish" value="TL"/>
+    <property name="start" value="RB"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJyN0DkOgFAIBFAKC5famLj0Fi43cCmMRzDe/yJOAQ3/j0ryQjMBwiEiJ6SQQaJyKCSsEiqooYFetdC95K1bDTBG9rH8AmtkH8uzO2zvBPOPvO3dYJfwT4bN838ybN7XXX6ezWHl/8xc2v2fmVv7A+ZcDJc=
+  </data>
+  </layer>
+  <layer id="9" name="SS09" width="12" height="12" visible="0">
+   <properties>
+    <property name="finish" value="LB"/>
+    <property name="start" value="TL"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJxd0LkKAkEQhOEOBK/AVRgWr2DVwMAj8Ag9AvERxPd/EX/BgrIHvmB6q2d6tkREHf+rgy5apoc+Hnim/ARTrM0Mc2ywtf6wms5uo/zmuOBq/WE1nVtbXrPusLe97ispr1lvuNte9+V8nlX3qK59nl//Qfeorr3yvgaoMMQoffO8cg0WWGKV+pR/We6AI044W5/e9c2/LZeX+vS2MT69SBAD
+  </data>
+  </layer>
+  <layer id="8" name="SS08" width="12" height="12" visible="0">
+   <properties>
+    <property name="finish" value="BL"/>
+    <property name="start" value="RB"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJzjYGBg4ARiFgKYC4i5gVgKiKWBWIMAlgFiWSAWBWJxBgTgQLJPEIiFoOIwdejqke1TBmIVqF49INYHYh0g1kVyH7J+UyA2g+p1AGJHILYDYns87sMFYOrQ7SOkHt0+dAALD5h/0PWjA1h4wPxDSD0ucZg/YPEbDqVdgdgdi3qYP2DxGwmlAftkDAA=
+  </data>
+  </layer>
+  <layer id="7" name="SS07" width="12" height="12" visible="0">
+   <properties>
+    <property name="finish" value="LB"/>
+    <property name="start" value="RB"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJzjYGBg4ARiFiIwOxBLAbE0EGsQwDJALA7EOkCsi2YOFxBzMyAAGxDrQdXbAbE9FrNkkdSLQt0gCcQcWNwPMksfTb0uHvc7ALEjknoJJPeLQmkGHHah22kAxIZAbEQgrGB2OgGxMxC7oNmFD8DUEaM+HMlt2OIChsOhdCSS27DFBQxHQmkAg5oOhQ==
+  </data>
+  </layer>
+  <layer id="6" name="SS06" width="12" height="12" visible="0">
+   <properties>
+    <property name="finish" value="LB"/>
+    <property name="start" value="TL"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJyF0EkKAkEMheEsBOdhUziPq15oO66dxSOI97+If0EKqkM1Bj5o6EcqiRORvqSrix4qqooX3iW5JVbIMNG+Lupvc0ec9J+L8ht9L5Xz1UIbHQz0vSyRCzXDHIs/OzbQNDPXUI9uYHecmvwI45KZQm6HPQ5YR/sGdo47HnjijEvUv2yO8P0xvb0cWyneOtf81/T2rrhJ8dbeED/k3w5n
+  </data>
+  </layer>
+  <layer id="5" name="SS05" width="12" height="12" visible="0">
+   <properties>
+    <property name="finish" value="BL"/>
+    <property name="start" value="TL"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJyN0bkKAkEQhOEODFyP1WRRXO/IwCPQ2CMQ3/+N/AMLimYHHPjYYaYZqnubiJihjwq9ggGGeOODBVocCpZYofm9r29p6f6IE864/FF/xwNPvOw+96P3/Fw9RUc/es/P1VNYzjwf79P3ylmazwhj1NbDBNOUX/VrbLC1uh32Kb/PX3lVd8UtzVX/d25Zu+q0vp9mDac=
+  </data>
+  </layer>
+  <layer id="4" name="SS04" width="12" height="12" visible="0">
+   <properties>
+    <property name="finish" value="BL"/>
+    <property name="start" value="TR"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJx10csKAjEMQNEsBEdQQUEUlVHQhQvfoEt1fOD//5FXTJgQ28BZJWnTphCRFhqqh778xwBDjDHBSi2wdP1NrX/hjTU2LnfCWXuneqY//4JryH2jjQ66oT7OZ1FihnmiN9bHvO9N1cf8HgccUcjvP7fYZe6+44Gn1P95Q5W529+ferf9r99frn4k9e78/mxe21subH827wd1dwzf
+  </data>
+  </layer>
+  <layer id="3" name="SS03" width="12" height="12" visible="0">
+   <properties>
+    <property name="finish" value="BR"/>
+    <property name="start" value="LB"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJyF0DkKgDAQheEUIlFrEbfewuUGLoV4BPH+F/G3CMiQTIqPaSZ5L7HGmAxJRI4CDVoMER16lKhgAznuXrfnZihH3iunzJmxKPsyZ8eh7Gs52r7vPTVGTErPVPzTii3Ss/3903f29vQM5X69Hk9PmXviwgvE3g+r
+  </data>
+  </layer>
+  <layer id="2" name="SS02" width="12" height="12" visible="0">
+   <properties>
+    <property name="finish" value="RB"/>
+    <property name="start" value="LT"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJx1kksKAjEQBbMY/IAOKMjoKCroYhZ+Vrp09BTi/S9iBdLwaNtAEQKVl04nVUrpDVXAEAZu3cGnzMoGGljAWtYjGEvGDObFa4K5Lfst9wBHuPzxT3CW+m5wL3tXgf+AXurzw/t5TGAKtXh2r1zX1flb2MFefLvXE17iR9lahz8nylY/Osf6o1ie9i//g2X6fdtO8qx/9g++7z4Ong==
+  </data>
+  </layer>
+  <layer id="1" name="SS01" width="12" height="12" visible="0">
+   <properties>
+    <property name="finish" value="RT"/>
+    <property name="start" value="BL"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJyN0MkKwkAMxvE5SA8udQFRsFq3gxf14HLWg/QRiu//Iv0LE/wIU7Hwg5JkQpIshNARY0zC9xtiFHM1pljgEO2wl/cbbGPuHetn0u+Gu7y/4Cr5T/3RzZTSRQ9z6fVLgSWylj4+fsI5sa/18fEHnm7fPgbIE3fQfS2+Qol14g42p9brv7+DzflC9cdtdd+2nsr2bQCgQg2N
+  </data>
+  </layer>
+ </group>
+</map>
