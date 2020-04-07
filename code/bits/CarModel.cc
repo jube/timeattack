@@ -22,9 +22,6 @@ namespace ta {
   }
 
   void CarModel::update(gf::Time time) {
-    static constexpr float Acceleration = 300.0f;
-    static constexpr float MaxVelocity = 800.0f;
-    static constexpr float BrakingFactor = 6.0f;
     static constexpr float StopDistance = 5.0f;
 
     if (m_attract) {
@@ -39,17 +36,17 @@ namespace ta {
         length = 0;
       }
 
-      float velocityAcceleration = m_state.car.velocity + Acceleration * time.asSeconds();
+      float velocityAcceleration = m_state.car.velocity + m_state.car.acceleration * time.asSeconds();
 
-      if (velocityAcceleration > MaxVelocity) {
-        velocityAcceleration = MaxVelocity;
+      if (velocityAcceleration > m_state.car.maxVelocity) {
+        velocityAcceleration = m_state.car.maxVelocity;
       }
 
-      float velocityBreak = std::sqrt(2.0f * length * (BrakingFactor * Acceleration));
+      float velocityBreak = std::sqrt(2.0f * length * (m_state.car.brakingFactor * m_state.car.acceleration));
 
       m_state.car.velocity = std::min(velocityAcceleration, velocityBreak);
     } else {
-      m_state.car.velocity -= BrakingFactor * Acceleration * time.asSeconds();
+      m_state.car.velocity -= m_state.car.brakingFactor * m_state.car.acceleration * time.asSeconds();
 
       if (m_state.car.velocity < 0) {
         m_state.car.velocity = 0;

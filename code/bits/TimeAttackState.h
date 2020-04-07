@@ -27,6 +27,10 @@ namespace ta {
     b2Body *body = nullptr;
     float angle;
     float velocity;
+    // ground dependent values
+    float acceleration;
+    float maxVelocity;
+    float brakingFactor;
   };
 
   struct TimeAttackState {

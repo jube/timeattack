@@ -16,17 +16,40 @@ namespace ta {
     gf::Polyline line;
     StageLimit start;
     StageLimit finish;
- };
+  };
+
+  enum class RaceDifficulty {
+    Easy,
+    Medium,
+    Hard,
+    Challenging,
+  };
+
+  enum class RaceGround {
+    Sand,
+    Dirt,
+    Asphalt,
+  };
 
   struct RaceData {
     std::vector<StageData> stages;
+    RaceDifficulty difficulty;
+    RaceGround ground;
+  };
+
+  struct TerrainData {
+    RaceGround ground;
+    gf::TileLayer tiles;
   };
 
   struct TimeAttackData {
     TimeAttackData(gf::ResourceManager& resources);
 
     std::vector<RaceData> races;
-    std::vector<gf::TileLayer> grounds;
+    std::vector<TerrainData> terrains;
+
+    const RaceData *findRace(RaceDifficulty difficulty, RaceGround ground) const;
+    TerrainData *findTerrain(RaceGround ground);
   };
 
 }

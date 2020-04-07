@@ -27,15 +27,16 @@ namespace ta {
 
   void TimeAttackState::loadPhysics(const TimeAttackData& data) {
     assert(currentRace < data.races.size());
-    assert(currentStage < data.races[currentRace].stages.size());
+    auto& race = data.races[currentRace];
+
+    assert(currentStage < race.stages.size());
+    auto& stage = race.stages[currentStage];
 
     physics.clear();
     car.body = nullptr;
 
     listener.reset();
     physics.world.SetContactListener(&listener);
-
-    auto& stage = data.races[currentRace].stages[currentStage];
 
     {
       auto body = physics.createSimpleBody({ 0.0f, 0.0f }, 0.0f, gfb2d::BodyType::Static);
@@ -49,8 +50,26 @@ namespace ta {
       car.body = body;
     }
 
-    car.velocity = 0.0f;
     car.angle = getInitialAngle(stage.start);
+    car.velocity = 0.0f;
+
+    switch (race.ground) {
+      case RaceGround::Sand:
+        car.acceleration = 200.0f;
+        car.maxVelocity = 600.0f;
+        car.brakingFactor = 6.0f;
+        break;
+      case RaceGround::Dirt:
+        car.acceleration = 300.0f;
+        car.maxVelocity = 800.0f;
+        car.brakingFactor = 6.0f;
+        break;
+      case RaceGround::Asphalt:
+        car.acceleration = 500.0f;
+        car.maxVelocity = 1200.0f;
+        car.brakingFactor = 8.0f;
+        break;
+    }
   }
 
 }

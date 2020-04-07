@@ -32,9 +32,12 @@ namespace ta {
     assert(currentStage < race.stages.size());
     auto& stage = race.stages[currentStage];
 
+    auto terrain = m_data.findTerrain(race.ground);
+    assert(terrain != nullptr);
+
     gf::Vector2f base = gf::vec(12, 12) * TileSize;
-    m_data.grounds[0].setOrigin(base);
-    target.draw(m_data.grounds[0], states);
+    terrain->tiles.setOrigin(base);
+    target.draw(terrain->tiles, states);
 
     target.draw(stage.tiles, states);
 

@@ -26,6 +26,10 @@
   </layer>
  </group>
  <group id="12" name="Rally01" visible="0">
+  <properties>
+   <property name="difficulty" value="hard"/>
+   <property name="ground" value="asphalt"/>
+  </properties>
   <layer id="10" name="SS10" width="12" height="12" visible="0">
    <properties>
     <property name="finish" value="TL"/>

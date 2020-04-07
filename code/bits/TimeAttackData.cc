@@ -1,28 +1,79 @@
 #include "TimeAttackData.h"
 
+#include <gf/Id.h>
 #include <gf/Tmx.h>
 #include <gf/TmxOps.h>
 
 #include "Settings.h"
 #include "TilesetInfo.h"
 
+using namespace gf::literals;
+
 namespace ta {
 
   namespace {
-    struct GroundVisitor : public gf::TmxVisitor {
-      GroundVisitor(std::vector<gf::TileLayer>& tiles, gf::ResourceManager& resources)
-      : m_tiles(tiles)
+    RaceDifficulty getDifficultyFromString(const std::string& str) {
+      switch (gf::hash(str)) {
+        case "easy"_id:
+          return RaceDifficulty::Easy;
+        case "medium"_id:
+          return RaceDifficulty::Medium;
+        case "hard"_id:
+          return RaceDifficulty::Hard;
+        case "challenging"_id:
+          return RaceDifficulty::Challenging;
+      }
+
+      gf::Log::error("Unknown difficulty: '%s'\n", str.c_str());
+      return RaceDifficulty::Easy;
+    }
+
+    RaceGround getGroundFromString(const std::string& str) {
+      switch (gf::hash(str)) {
+        case "sand"_id:
+          return RaceGround::Sand;
+        case "dirt"_id:
+          return RaceGround::Dirt;
+        case "asphalt"_id:
+          return RaceGround::Asphalt;
+      }
+
+      gf::Log::error("Unknown ground: '%s'\n", str.c_str());
+      return RaceGround::Sand;
+    }
+
+    struct TerrainVisitor : public gf::TmxVisitor {
+      TerrainVisitor(std::vector<TerrainData>& terrains, gf::ResourceManager& resources)
+      : m_terrains(terrains)
       , m_resources(resources)
       {
       }
 
       void visitTileLayer(const gf::TmxLayers& map, const gf::TmxTileLayer& layer) override {
         gf::Log::info("Layer: '%s'\n", layer.name.c_str());
-        m_tiles.emplace_back(gf::makeTileLayer(map, layer, m_resources));
+
+        TerrainData terrain;
+
+        // ground
+
+        std::string ground = layer.properties.getStringProperty("ground", "");
+
+        if (ground.empty()) {
+          gf::Log::error("Missing 'ground' in a tile layer: '%s'\n", layer.name.c_str());
+          return;
+        }
+
+        terrain.ground = getGroundFromString(ground);
+
+        // tiles
+
+        terrain.tiles = gf::makeTileLayer(map, layer, m_resources);
+
+        m_terrains.emplace_back(std::move(terrain));
       }
 
     private:
-      std::vector<gf::TileLayer>& m_tiles;
+      std::vector<TerrainData>& m_terrains;
       gf::ResourceManager& m_resources;
     };
 
@@ -40,6 +91,30 @@ namespace ta {
 
         RaceData race;
         m_current = &race;
+
+        // difficulty
+
+        std::string difficulty = layer.properties.getStringProperty("difficulty", "");
+
+        if (difficulty.empty()) {
+          gf::Log::error("Missing 'difficulty' in a group layer: '%s'\n", layer.name.c_str());
+          return;
+        }
+
+        race.difficulty = getDifficultyFromString(difficulty);
+
+        // ground
+
+        std::string ground = layer.properties.getStringProperty("ground", "");
+
+        if (ground.empty()) {
+          gf::Log::error("Missing 'ground' in a group layer: '%s'\n", layer.name.c_str());
+          return;
+        }
+
+        race.ground = getGroundFromString(ground);
+
+        // stages
 
         for (auto& ptr : layer.layers) {
           ptr->accept(map, *this);
@@ -132,11 +207,31 @@ namespace ta {
     }
 
     {
-      GroundVisitor visitor(grounds, resources);
+      TerrainVisitor visitor(terrains, resources);
       gf::TmxLayers layers;
       layers.loadFromFile(resources.getAbsolutePath("ground.tmx"));
       layers.visitLayers(visitor);
     }
+  }
+
+  const RaceData *TimeAttackData::findRace(RaceDifficulty difficulty, RaceGround ground) const {
+    for (auto& race : races) {
+      if (race.difficulty == difficulty && race.ground == ground) {
+        return &race;
+      }
+    }
+
+    return nullptr;
+  }
+
+  TerrainData *TimeAttackData::findTerrain(RaceGround ground) {
+    for (auto& terrain : terrains) {
+      if (terrain.ground == ground) {
+        return &terrain;
+      }
+    }
+
+    return nullptr;
   }
 
 }
