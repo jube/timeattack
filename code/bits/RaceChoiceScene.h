@@ -5,7 +5,7 @@
 #include <gf/Scene.h>
 
 #include "BackEntity.h"
-#include "CarChoiceEntity.h"
+#include "RaceChoiceEntity.h"
 
 namespace ta {
 
@@ -25,6 +25,7 @@ namespace ta {
 
     gf::Action m_escapeAction;
 
+    RaceChoiceEntity m_choice;
     BackEntity m_back;
   };
 

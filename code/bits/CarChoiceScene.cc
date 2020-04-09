@@ -56,15 +56,11 @@ namespace ta {
       m_game.replaceScene(m_game.menu, m_game.fade, gf::milliseconds(200));
     }
 
-    const char *choice = m_choice.retriveChosenCar();
+    const char *choice = m_choice.retrieveChosenCar();
 
     if (choice != nullptr) {
       m_game.state.car.texture = choice;
-//       m_game.replaceScene(m_game.raceChoice);
-
-      m_game.state.currentRace = 0; // TODO
-      m_game.state.currentStage = 0;
-      m_game.startRace();
+      m_game.replaceScene(m_game.raceChoice, m_game.fade, gf::milliseconds(200));
     }
   }
 

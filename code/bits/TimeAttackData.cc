@@ -214,14 +214,18 @@ namespace ta {
     }
   }
 
-  const RaceData *TimeAttackData::findRace(RaceDifficulty difficulty, RaceGround ground) const {
+  std::size_t TimeAttackData::findRace(RaceDifficulty difficulty, RaceGround ground) const {
+    std::size_t i = 0;
+
     for (auto& race : races) {
       if (race.difficulty == difficulty && race.ground == ground) {
-        return &race;
+        return i;
       }
+
+      ++i;
     }
 
-    return nullptr;
+    return -1;
   }
 
   TerrainData *TimeAttackData::findTerrain(RaceGround ground) {

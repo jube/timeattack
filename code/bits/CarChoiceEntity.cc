@@ -48,8 +48,14 @@ namespace ta {
     m_choice = m_selection;
   }
 
-  const char *CarChoiceEntity::retriveChosenCar() {
-    return std::exchange(m_choice, nullptr);
+  const char *CarChoiceEntity::retrieveChosenCar() {
+    auto choice = std::exchange(m_choice, nullptr);
+
+    if (choice != nullptr) {
+      m_cursor = gf::vec(0.0f, 0.0f);
+    }
+
+    return choice;
   }
 
   void CarChoiceEntity::update(gf::Time time) {

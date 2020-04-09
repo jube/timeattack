@@ -14,7 +14,7 @@ namespace ta {
 
     void pointTo(gf::Vector2f coords);
     void triggerAction();
-    const char *retriveChosenCar();
+    const char *retrieveChosenCar();
 
     void update(gf::Time time) override;
     void render(gf::RenderTarget& target, const gf::RenderStates& states) override;

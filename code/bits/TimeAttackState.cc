@@ -55,8 +55,8 @@ namespace ta {
 
     switch (race.ground) {
       case RaceGround::Sand:
-        car.acceleration = 200.0f;
-        car.maxVelocity = 600.0f;
+        car.acceleration = 100.0f;
+        car.maxVelocity = 400.0f;
         car.brakingFactor = 6.0f;
         break;
       case RaceGround::Dirt:

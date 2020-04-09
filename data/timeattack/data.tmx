@@ -1,31 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.3" orientation="orthogonal" renderorder="right-down" width="12" height="12" tilewidth="128" tileheight="128" infinite="0" nextlayerid="17" nextobjectid="1">
- <tileset firstgid="1" name="tileset_road" tilewidth="128" tileheight="128" spacing="2" margin="1" tilecount="90" columns="18">
-  <image source="tileset_road.png" width="2340" height="650"/>
+<map version="1.2" tiledversion="1.3.3" orientation="orthogonal" renderorder="right-down" width="12" height="12" tilewidth="128" tileheight="128" infinite="0" nextlayerid="27" nextobjectid="1">
+ <tileset firstgid="1" name="asphalt" tilewidth="128" tileheight="128" spacing="2" margin="1" tilecount="90" columns="18">
+  <image source="tileset_road_asphalt.png" width="2340" height="650"/>
  </tileset>
- <group id="13" name="Rally02">
+ <tileset firstgid="91" name="dirt" tilewidth="128" tileheight="128" spacing="2" margin="1" tilecount="90" columns="18">
+  <image source="tileset_road_dirt.png" width="2340" height="650"/>
+ </tileset>
+ <tileset firstgid="181" name="sand" tilewidth="128" tileheight="128" spacing="2" margin="1" tilecount="90" columns="18">
+  <image source="tileset_road_sand.png" width="2340" height="650"/>
+ </tileset>
+ <group id="25" name="Race_Asphalt_Waiting" visible="0">
+  <layer id="11" name="SSYY" width="12" height="12" visible="0">
+   <data encoding="base64" compression="zlib">
+   eJx90DsLwlAMhuEMRasOdSnehzp18DLo7GUQ//8/8j2QQPyoBh56aMLJSWozm6DCFDO0WKAeyK2xQY8tdqn+X87SWb9DuRIHHHHCOeVG/k/rb7jjgafcWd61kvoSDeY+o/bJb6hch73PqH3yG3p3wdW+o/U7x7LjELuOWPo+dcchdq09Sv0Lb8npTL9mj9CZ8uwf9W4N+g==
+  </data>
+  </layer>
   <layer id="14" name="SSXX" width="12" height="12" visible="0">
    <data encoding="base64" compression="zlib">
    eJxjYMAErkDsjkV8uAM2IGZBwuEE1EsAsTcQa0BxJBF2MJLoJnUgZgJiVhL1EbKHBQ1bAzE7HvUaWLAkEAMA7UoDZQ==
   </data>
   </layer>
-  <layer id="16" name="SS03" width="12" height="12">
+ </group>
+ <group id="13" name="Race_Asphalt_Easy" visible="0">
+  <properties>
+   <property name="difficulty" value="easy"/>
+   <property name="ground" value="asphalt"/>
+  </properties>
+  <layer id="19" name="SS04" width="12" height="12" visible="0">
+   <properties>
+    <property name="finish" value="TC"/>
+    <property name="start" value="BC"/>
+   </properties>
    <data encoding="base64" compression="zlib">
-   eJyFkbkKgDAQRFNYeNQiePQWHn/gUYj//0eOkIFhTWLgkYWdPTJx7nsucPs4BwUoQRXQvqcGjY9b0IEeDFKfCQtYTS1v1o/CAc6IfgKz6R+aRf0GdtM/NIv60P4KfUntr9AX+46Y11aX8vrPH3qh/8s8c+qP9cJJnrkH+EsOlQ==
+   eJyF0TkKgEAMhWELC5daBJfewuUGLoV4/xv5Fz4IMeLABzITJplnkrzXiQsZcqQoULo9mbGgQYsBHXq3JzsOVKifnvq2e35F9SMmN4+fy9av2Nw8fi5bH71XlImtj94ryuTrveqle//yUS/d+5eP8tD/jc5sPsojyk5nN0PqDpU=
+  </data>
+  </layer>
+  <layer id="26" name="SS03" width="12" height="12" visible="0">
+   <properties>
+    <property name="finish" value="TC"/>
+    <property name="start" value="BC"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJxjYMAErkDsjkUcFxAFYnEcchxAzAnELEhYD4j1caiXAmJpINZAwg5A7EiE3djsgmEuIOZGU4/NLhiWAWJZNPUwNrI96ObqALEumj+R7UE31w6I7dH8ic1OfGGMLAezH18YI8cvzH6Y3YTMRwcAeP4KlQ==
   </data>
   </layer>
   <layer id="15" name="SS02" width="12" height="12" visible="0">
+   <properties>
+    <property name="finish" value="TC"/>
+    <property name="start" value="BC"/>
+   </properties>
    <data encoding="base64" compression="zlib">
-   eJyt0TkKgEAQRNEJDFxiEVxyA5cbuATi/W/kTxqGsToQLHjJ0DTVTAjvXLjFu5cazYf5CTOySInKmd+wY4z0GJCjSHYpC1a06JJdyoHT6apYf9VVsf4q6ibrr6Jusv4qf/7vA6D2Cck=
+   eJyl0bsKgDAMheEODl5mEbzsDlrfQOsgvv8b+YMUSkwE8cC3lBI4iXPPHDiVdysTZmSJEpXxf8WGMdFjQI5CzNJ4LGjRiVmagB01mp/dpLSr1k2KXa3IHcSuVuQOgru7Wvl637edXRlFCXE=
   </data>
   </layer>
-  <layer id="11" name="SS01" width="12" height="12" visible="0">
+  <layer id="20" name="SS01" width="12" height="12" visible="0">
+   <properties>
+    <property name="finish" value="TC"/>
+    <property name="start" value="BC"/>
+   </properties>
    <data encoding="base64" compression="zlib">
-   eJx90DsLwlAMhuEMRasOdSnehzp18DLo7GUQ//8/8j2QQPyoBh56aMLJSWozm6DCFDO0WKAeyK2xQY8tdqn+X87SWb9DuRIHHHHCOeVG/k/rb7jjgafcWd61kvoSDeY+o/bJb6hch73PqH3yG3p3wdW+o/U7x7LjELuOWPo+dcchdq09Sv0Lb8npTL9mj9CZ8uwf9W4N+g==
+   eJxjYMAErkDsjkUcFxAFYnE88hxAzAnELFCsB8T6eNRLAbE0EGtAsQMQO1JgPzrQAWJdJPcgYy4g5kZTbwfE9kjuQcYyQCxLgt3EuBU5vAiFFQggh5cDA/6wAgFqxi8AeXEGlQ==
   </data>
   </layer>
  </group>
- <group id="12" name="Rally01" visible="0">
+ <group id="12" name="Race_Asphalt_Hard" visible="0">
   <properties>
    <property name="difficulty" value="hard"/>
    <property name="ground" value="asphalt"/>
@@ -118,6 +156,48 @@
    </properties>
    <data encoding="base64" compression="zlib">
    eJyN0MkKwkAMxvE5SA8udQFRsFq3gxf14HLWg/QRiu//Iv0LE/wIU7Hwg5JkQpIshNARY0zC9xtiFHM1pljgEO2wl/cbbGPuHetn0u+Gu7y/4Cr5T/3RzZTSRQ9z6fVLgSWylj4+fsI5sa/18fEHnm7fPgbIE3fQfS2+Qol14g42p9brv7+DzflC9cdtdd+2nsr2bQCgQg2N
+  </data>
+  </layer>
+ </group>
+ <group id="18" name="Race_Sand_Easy" visible="0">
+  <properties>
+   <property name="difficulty" value="easy"/>
+   <property name="ground" value="sand"/>
+  </properties>
+  <layer id="23" name="SS04" width="12" height="12" visible="0">
+   <properties>
+    <property name="finish" value="TC"/>
+    <property name="start" value="LB"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJxjYMAEP4H4NxZxXOAkEJ8eQeofAPFDIN6BhPcB8X4c6j8B8WcgvoOELwDxRRq6EaYe5DZuRlS3YsOPgPgx1G28jKhuxYa/APFXIAYAC34qfQ==
+  </data>
+  </layer>
+  <layer id="22" name="SS03" width="12" height="12" visible="0">
+   <properties>
+    <property name="finish" value="RB"/>
+    <property name="start" value="LT"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJzbwcDAwM3IwLCDAYH3AfF+BuzgDhDzMkJoGL4AxBdxqMcGTgLx6VH1A6b+ARA/ZECNcxAGpQNs4BMQf2ZAjXNYOgAA59kgOQ==
+  </data>
+  </layer>
+  <layer id="21" name="SS02" width="12" height="12" visible="0">
+   <properties>
+    <property name="finish" value="RT"/>
+    <property name="start" value="BC"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJxjYMAEe4B4LxDvQMPcjFgUA8E5ID4PxHfQMC8O9SeB+DR2qVH1dFD/E4h/U8l8AFbUGak=
+  </data>
+  </layer>
+  <layer id="17" name="SS01" width="12" height="12" visible="0">
+   <properties>
+    <property name="finish" value="TC"/>
+    <property name="start" value="BC"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJxjYMAEP4H4NxZxXOAkEJ8eVT9k1FMzfgFiuhOx
   </data>
   </layer>
  </group>

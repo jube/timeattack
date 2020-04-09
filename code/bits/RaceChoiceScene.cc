@@ -12,6 +12,7 @@ namespace ta {
   : gf::Scene(game.getRenderer().getSize())
   , m_game(game)
   , m_escapeAction("Escape")
+  , m_choice(game.resources, game.data)
   , m_back(game.resources)
   {
     setClearColor(gf::Color::White);
@@ -19,6 +20,7 @@ namespace ta {
     m_escapeAction.addKeycodeKeyControl(gf::Keycode::Escape);
     addAction(m_escapeAction);
 
+    addHudEntity(m_choice);
     addHudEntity(m_back);
   }
 
@@ -26,11 +28,14 @@ namespace ta {
     switch (event.type) {
       case gf::EventType::MouseMoved:
         m_back.pointTo(m_game.computeWindowToGameCoordinates(event.mouseCursor.coords, getHudView()));
+        m_choice.pointTo(m_game.computeWindowToGameCoordinates(event.mouseCursor.coords, getHudView()));
         break;
 
       case gf::EventType::MouseButtonPressed:
         m_back.pointTo(m_game.computeWindowToGameCoordinates(event.mouseButton.coords, getHudView()));
         m_back.triggerAction();
+        m_choice.pointTo(m_game.computeWindowToGameCoordinates(event.mouseCursor.coords, getHudView()));
+        m_choice.triggerAction();
         break;
 
       default:
@@ -40,7 +45,7 @@ namespace ta {
 
   void RaceChoiceScene::doHandleActions(gf::Window& window) {
     if (m_escapeAction.isActive()) {
-      m_game.replaceScene(m_game.carChoice);
+      m_game.replaceScene(m_game.carChoice, m_game.fade, gf::milliseconds(200));
     }
   }
 
@@ -48,7 +53,15 @@ namespace ta {
     gf::unused(time);
 
     if (m_back.hasPressedBack()) {
-      m_game.replaceScene(m_game.carChoice);
+      m_game.replaceScene(m_game.carChoice, m_game.fade, gf::milliseconds(200));
+    }
+
+    std::size_t choice = m_choice.retrieveChosenRace();
+
+    if (choice != std::size_t(-1)) {
+      m_game.state.currentRace = choice;
+      m_game.state.currentStage = 0;
+      m_game.startRace();
     }
   }
 

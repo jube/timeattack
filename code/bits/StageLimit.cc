@@ -14,6 +14,7 @@ namespace ta {
 
     constexpr int GroundLimit = GroundExtent - 1;
     constexpr int TileOffset = 2 * TileExtent / 3;
+    constexpr int GroundExtent2 = GroundExtent / 2;
 
   }
 
@@ -21,18 +22,26 @@ namespace ta {
     switch (gf::hash(str)) {
       case "BL"_id:
         return StageLimit::BottomLeft;
+      case "BC"_id:
+        return StageLimit::BottomCenter;
       case "BR"_id:
         return StageLimit::BottomRight;
       case "TL"_id:
         return StageLimit::TopLeft;
+      case "TC"_id:
+        return StageLimit::TopCenter;
       case "TR"_id:
         return StageLimit::TopRight;
       case "LB"_id:
         return StageLimit::LeftBottom;
+      case "LC"_id:
+        return StageLimit::LeftCenter;
       case "LT"_id:
         return StageLimit::LeftTop;
       case "RB"_id:
         return StageLimit::RightBottom;
+      case "RC"_id:
+        return StageLimit::RightCenter;
       case "RT"_id:
         return StageLimit::RightTop;
       default:
@@ -57,6 +66,14 @@ namespace ta {
       case StageLimit::TopRight:
       case StageLimit::RightTop:
         return gf::vec(GroundLimit * TileExtent, TileExtent);
+      case StageLimit::TopCenter:
+        return gf::vec(GroundExtent2 * TileExtent, TileExtent);
+      case StageLimit::BottomCenter:
+        return gf::vec(GroundExtent2 * TileExtent, GroundLimit * TileExtent);
+      case StageLimit::LeftCenter:
+        return gf::vec(TileExtent, GroundExtent2 * TileExtent);
+      case StageLimit::RightCenter:
+        return gf::vec(GroundLimit * TileExtent, GroundExtent2 * TileExtent);
     }
 
     assert(false);
@@ -88,23 +105,25 @@ namespace ta {
   }
 
   gf::Vector2i getTarget(StageLimit limit) {
+    gf::Vector2i base = getInitialPosition(limit);
+
     switch (limit) {
-      case StageLimit::BottomLeft:
-        return gf::vec(TileExtent, GroundLimit * TileExtent) + gf::diry(TileOffset);
-      case StageLimit::LeftBottom:
-        return gf::vec(TileExtent, GroundLimit * TileExtent) - gf::dirx(TileOffset);
-      case StageLimit::BottomRight:
-        return gf::vec(GroundLimit * TileExtent, GroundLimit * TileExtent) + gf::diry(TileOffset);
-      case StageLimit::RightBottom:
-        return gf::vec(GroundLimit * TileExtent, GroundLimit * TileExtent) + gf::dirx(TileOffset);
       case StageLimit::TopLeft:
-        return gf::vec(TileExtent, TileExtent) - gf::diry(TileOffset);
-      case StageLimit::LeftTop:
-        return gf::vec(TileExtent, TileExtent) - gf::dirx(TileOffset);
+      case StageLimit::TopCenter:
       case StageLimit::TopRight:
-        return gf::vec(GroundLimit * TileExtent, TileExtent) - gf::diry(TileOffset);
+        return base - gf::diry(TileOffset);
+      case StageLimit::BottomLeft:
+      case StageLimit::BottomCenter:
+      case StageLimit::BottomRight:
+        return base + gf::diry(TileOffset);
+      case StageLimit::LeftTop:
+      case StageLimit::LeftCenter:
+      case StageLimit::LeftBottom:
+        return base - gf::dirx(TileOffset);
       case StageLimit::RightTop:
-        return gf::vec(GroundLimit * TileExtent, TileExtent) + gf::dirx(TileOffset);
+      case StageLimit::RightCenter:
+      case StageLimit::RightBottom:
+        return base + gf::dirx(TileOffset);
     }
 
     assert(false);

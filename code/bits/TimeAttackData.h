@@ -7,6 +7,7 @@
 #include <gf/ResourceManager.h>
 #include <gf/TileLayer.h>
 
+#include "RaceTypes.h"
 #include "StageLimit.h"
 
 namespace ta {
@@ -16,19 +17,6 @@ namespace ta {
     gf::Polyline line;
     StageLimit start;
     StageLimit finish;
-  };
-
-  enum class RaceDifficulty {
-    Easy,
-    Medium,
-    Hard,
-    Challenging,
-  };
-
-  enum class RaceGround {
-    Sand,
-    Dirt,
-    Asphalt,
   };
 
   struct RaceData {
@@ -48,7 +36,7 @@ namespace ta {
     std::vector<RaceData> races;
     std::vector<TerrainData> terrains;
 
-    const RaceData *findRace(RaceDifficulty difficulty, RaceGround ground) const;
+    std::size_t findRace(RaceDifficulty difficulty, RaceGround ground) const;
     TerrainData *findTerrain(RaceGround ground);
   };
 

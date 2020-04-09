@@ -19,6 +19,8 @@ namespace ta {
     constexpr int TileTurnLo = static_cast<int>(TileExtent * (2 - gf::Sqrt3));
     constexpr int TileTurnHi = TileExtent - TileTurnLo;
 
+    constexpr int GroundExtent2 = GroundExtent / 2;
+
     /*
      * tileset description
      */
@@ -541,6 +543,11 @@ namespace ta {
         s.p1 = s.p0 + gf::dirx(TileExtent + TileLimit);
         m_segments.push_back(s);
         break;
+      case StageLimit::BottomCenter:
+        s.p0 = gf::vec((GroundExtent2 - 1) * TileExtent, GroundExtent * TileExtent);
+        s.p1 = s.p0 + gf::dirx(TileExtent + TileLimit);
+        m_segments.push_back(s);
+        break;
       case StageLimit::BottomRight:
         s.p0 = gf::vec(GroundExtent * TileExtent - 1, GroundExtent * TileExtent);
         s.p1 = s.p0 - gf::dirx(TileExtent + TileLimit);
@@ -548,6 +555,11 @@ namespace ta {
         break;
       case StageLimit::TopLeft:
         s.p0 = gf::vec(0, 0);
+        s.p1 = s.p0 + gf::dirx(TileExtent + TileLimit);
+        m_segments.push_back(s);
+        break;
+      case StageLimit::TopCenter:
+        s.p0 = gf::vec((GroundExtent2 - 1) * TileExtent, 0);
         s.p1 = s.p0 + gf::dirx(TileExtent + TileLimit);
         m_segments.push_back(s);
         break;
@@ -561,6 +573,11 @@ namespace ta {
         s.p1 = s.p0 - gf::diry(TileExtent + TileLimit);
         m_segments.push_back(s);
         break;
+      case StageLimit::LeftCenter:
+        s.p0 = gf::vec(0, (GroundExtent2 - 1) * TileExtent);
+        s.p1 = s.p0 + gf::diry(TileExtent + TileLimit);
+        m_segments.push_back(s);
+        break;
       case StageLimit::LeftTop:
         s.p0 = gf::vec(0, 0);
         s.p1 = s.p0 + gf::diry(TileExtent + TileLimit);
@@ -569,6 +586,11 @@ namespace ta {
       case StageLimit::RightBottom:
         s.p0 = gf::vec(GroundExtent * TileExtent, GroundExtent * TileExtent - 1);
         s.p1 = s.p0 - gf::diry(TileExtent + TileLimit);
+        m_segments.push_back(s);
+        break;
+      case StageLimit::RightCenter:
+        s.p0 = gf::vec(GroundExtent * TileExtent, (GroundExtent2 - 1) * TileExtent);
+        s.p1 = s.p0 + gf::diry(TileExtent + TileLimit);
         m_segments.push_back(s);
         break;
       case StageLimit::RightTop:
