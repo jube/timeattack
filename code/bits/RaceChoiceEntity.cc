@@ -118,20 +118,18 @@ namespace ta {
         // race difficulty symbol
 
         gf::StarShape star(length / 12, length / 6, 5);
+        star.setOutlineColor(gf::Color::Gray(0.25f));
+        star.setOutlineThickness(length / 40);
 
         switch (Difficulties[j]) {
           case RaceDifficulty::Easy:
             star.setColor(gf::Color::fromRgba32(0x0F, 0xDD, 0x9B));
-            star.setOutlineColor(gf::Color::Gray(0.65f));
-            star.setOutlineThickness(length / 40);
             star.setPosition(position);
             star.setAnchor(gf::Anchor::Center);
             target.draw(star);
             break;
           case RaceDifficulty::Medium:
             star.setColor(gf::Color::fromRgba32(0xCB, 0xDD, 0x0F));
-            star.setOutlineColor(gf::Color::Gray(0.60f));
-            star.setOutlineThickness(length / 40);
 
             for (int k = 0; k < 2; ++k) {
               star.setPosition(position + gf::unit(k * gf::Pi) * length / 4);
@@ -141,8 +139,6 @@ namespace ta {
             break;
           case RaceDifficulty::Hard:
             star.setColor(gf::Color::fromRgba32(0xDD, 0x85, 0x0F));
-            star.setOutlineColor(gf::Color::Gray(0.55f));
-            star.setOutlineThickness(length / 40);
 
             for (int k = 0; k < 3; ++k) {
               star.setPosition(position + gf::unit(- gf::Pi2 + k * 2 * gf::Pi / 3) * length / 3.5);
@@ -152,8 +148,6 @@ namespace ta {
             break;
           case RaceDifficulty::Challenging:
             star.setColor(gf::Color::fromRgba32(0xDD, 0x0F, 0x0F));
-            star.setOutlineColor(gf::Color::Gray(0.50f));
-            star.setOutlineThickness(length / 40);
 
             for (int k = 0; k < 4; ++k) {
               star.setPosition(position + gf::unit(gf::Pi4 + k * gf::Pi / 2) * length / 3);

@@ -56,6 +56,8 @@ add_executable(timeattack
   code/bits/TimeAttack.cc
   code/bits/TimeAttackData.cc
   code/bits/TimeAttackState.cc
+  code/bits/TimerEntity.cc
+  code/bits/TimerModel.cc
   code/bits/TrafficEntity.cc
 
   vendor/gf-box2d/gfb2d/PhysicsModel.cc

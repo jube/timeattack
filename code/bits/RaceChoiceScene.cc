@@ -59,8 +59,7 @@ namespace ta {
     std::size_t choice = m_choice.retrieveChosenRace();
 
     if (choice != std::size_t(-1)) {
-      m_game.state.currentRace = choice;
-      m_game.state.currentStage = 0;
+      m_game.setupRace(choice);
       m_game.startRace();
     }
   }

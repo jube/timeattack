@@ -10,6 +10,7 @@ namespace ta {
   : gf::Scene(game.getRenderer().getSize())
   , m_game(game)
   , m_stage(game.data, game.state, StageEntity::Previous)
+  , m_timer(game.resources, game.state.timer)
   {
     setClearColor(gf::Color::fromRgba32(0x27, 0xAE, 0x60));
 
@@ -17,6 +18,8 @@ namespace ta {
     setWorldViewCenter(ViewSize / 2);
 
     addWorldEntity(m_stage);
+
+    addHudEntity(m_timer);
   }
 
   void FinishScene::doProcessEvent(gf::Event& event) {
@@ -34,6 +37,7 @@ namespace ta {
 
     if (m_game.state.currentStage < m_game.data.races[m_game.state.currentRace].stages.size()) {
       gf::Log::debug("Next!\n");
+      m_game.state.timer.addTime(gf::seconds(5.0f));
       m_game.startRace();
     } else {
       gf::Log::debug("The end!\n");

@@ -5,6 +5,7 @@
 
 #include <gfb2d/PhysicsModel.h>
 
+#include "TimerModel.h"
 #include "Settings.h"
 
 namespace ta {
@@ -48,6 +49,8 @@ namespace ta {
     gfb2d::PhysicsModel physics;
     PhysicsListener listener;
     CarState car;
+
+    TimerModel timer;
   };
 
 }

@@ -36,5 +36,4 @@ namespace ta {
       m_game.startIntro();
     }
   }
-
 }

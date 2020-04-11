@@ -14,6 +14,7 @@ namespace ta {
   , m_game(game)
   , m_car(game.atlas, game.state)
   , m_countdown(game.resources)
+  , m_timer(game.resources, game.state.timer)
   {
     setClearColor(gf::Color::fromRgba32(0x27, 0xAE, 0x60));
 
@@ -22,6 +23,8 @@ namespace ta {
 
     addWorldEntity(m_countdown);
     addWorldEntity(m_car);
+
+    addHudEntity(m_timer);
   }
 
   void CountdownScene::doProcessEvent(gf::Event& event) {
@@ -35,6 +38,7 @@ namespace ta {
   void CountdownScene::doUpdate(gf::Time time) {
     if (m_countdown.isFinished()) {
       m_countdown.reset();
+      m_game.state.timer.resume();
       m_game.replaceScene(m_game.stage);
     }
   }

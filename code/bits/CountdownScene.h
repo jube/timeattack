@@ -5,6 +5,7 @@
 
 #include "CarEntity.h"
 #include "CountdownEntity.h"
+#include "TimerEntity.h"
 
 namespace ta {
   struct TimeAttack;
@@ -23,6 +24,7 @@ namespace ta {
 
     CarEntity m_car;
     CountdownEntity m_countdown;
+    TimerEntity m_timer;
   };
 
 }

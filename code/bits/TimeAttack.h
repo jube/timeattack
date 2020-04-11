@@ -49,6 +49,8 @@ namespace ta {
     gf::ZoomBlurSegueEffect zoomBlur;
 
     void startIntro();
+
+    void setupRace(std::size_t raceIndex);
     void startRace();
   };
 

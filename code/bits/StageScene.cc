@@ -13,6 +13,7 @@ namespace ta {
   , m_debugAction("Debug")
   , m_carEntity(game.atlas, game.state)
   , m_carModel(game.state)
+  , m_timer(game.resources, game.state.timer)
   , m_debug(game.state.physics)
   {
     setClearColor(gf::Color::fromRgba32(0x27, 0xAE, 0x60));
@@ -25,9 +26,12 @@ namespace ta {
 
     addModel(m_carModel);
     addModel(m_game.state.physics);
+    addModel(game.state.timer);
 
     addWorldEntity(m_carEntity);
     addWorldEntity(m_debug);
+
+    addHudEntity(m_timer);
 
     m_debug.setDebug(false);
   }
@@ -55,11 +59,14 @@ namespace ta {
       m_tracker.reset();
     }
 
+    // TODO: check timer
+
     gf::Vector2f position = m_game.state.physics.computePhysicsToGameCoordinates(m_game.state.car.body->GetPosition());
     gf::Vector2f target = getTarget(m_game.data.races[m_game.state.currentRace].stages[m_game.state.currentStage].finish);
 
     if (gf::squareDistance(position, target) < gf::square(TargetDistance)) {
       gf::Log::debug("Target!\n");
+      m_game.state.timer.pause();
       m_tracker.reset();
       m_game.replaceAllScenes(m_game.finish);
     }

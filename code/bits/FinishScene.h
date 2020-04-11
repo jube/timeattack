@@ -5,6 +5,7 @@
 
 #include "StageEntity.h"
 #include "CarEntity.h"
+#include "TimerEntity.h"
 
 namespace ta {
 
@@ -22,6 +23,7 @@ namespace ta {
   private:
     TimeAttack& m_game;
     StageEntity m_stage;
+    TimerEntity m_timer;
   };
 
 }

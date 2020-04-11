@@ -26,6 +26,12 @@ namespace ta {
     pushScenes(scenes);
   }
 
+  void TimeAttack::setupRace(std::size_t raceIndex) {
+    state.currentRace = raceIndex;
+    state.currentStage = 0;
+    state.timer.reset(gf::seconds(60.0f));
+  }
+
   void TimeAttack::startRace() {
     state.loadPhysics(data);
     gf::Ref<gf::Scene> scenes[] = { gf::ref(race), gf::ref(countdown) };
