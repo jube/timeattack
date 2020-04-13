@@ -5,6 +5,7 @@
 
 #include "CarEntity.h"
 #include "CountdownEntity.h"
+#include "ProgressEntity.h"
 #include "TimerEntity.h"
 
 namespace ta {
@@ -25,6 +26,7 @@ namespace ta {
     CarEntity m_car;
     CountdownEntity m_countdown;
     TimerEntity m_timer;
+    ProgressEntity m_progress;
   };
 
 }

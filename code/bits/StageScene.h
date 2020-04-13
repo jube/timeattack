@@ -8,6 +8,7 @@
 #include "CarEntity.h"
 #include "CarModel.h"
 #include "MouseTracker.h"
+#include "ProgressEntity.h"
 #include "TimerEntity.h"
 
 namespace ta {
@@ -32,6 +33,7 @@ namespace ta {
     CarEntity m_carEntity;
     CarModel m_carModel;
     TimerEntity m_timer;
+    ProgressEntity m_progress;
 
     gfb2d::PhysicsDebugger m_debug;
   };

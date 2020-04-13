@@ -15,11 +15,14 @@ namespace ta {
   constexpr int TileExtent = 128;
   constexpr gf::Vector2i TileSize = gf::vec(TileExtent, TileExtent);
 
+  constexpr gf::Vector2i TileCount = { 18, 5 };
+
   constexpr float TargetDistance = 96.0f;
 
   constexpr gf::Vector2i ViewSize = GroundSize * TileSize;
 
   constexpr gf::RectF IntroView = gf::RectF::fromCenterSize({ 0.0f, 0.0f }, { 1000.0, 1000.0 });
+
 
 }
 

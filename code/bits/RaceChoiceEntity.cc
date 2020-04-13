@@ -16,7 +16,6 @@
 namespace ta {
 
   namespace {
-    constexpr gf::Vector2i TileCount = { 18, 5 };
     constexpr std::size_t NoChoice = -1;
   }
 

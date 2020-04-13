@@ -14,6 +14,7 @@ namespace ta {
   , m_carEntity(game.atlas, game.state)
   , m_carModel(game.state)
   , m_timer(game.resources, game.state.timer)
+  , m_progress(game.resources, game.atlas, game.data, game.state)
   , m_debug(game.state.physics)
   {
     setClearColor(gf::Color::fromRgba32(0x27, 0xAE, 0x60));
@@ -32,6 +33,7 @@ namespace ta {
     addWorldEntity(m_debug);
 
     addHudEntity(m_timer);
+    addHudEntity(m_progress);
 
     m_debug.setDebug(false);
   }
