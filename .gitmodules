@@ -1,3 +1,3 @@
 [submodule "vendor/gf-box2d"]
 	path = vendor/gf-box2d
-	url = git@github.com:GamedevFramework/gf-box2d.git
+	url = https://github.com/GamedevFramework/gf-box2d.git
