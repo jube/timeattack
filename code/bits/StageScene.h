@@ -8,8 +8,10 @@
 #include "CarEntity.h"
 #include "CarModel.h"
 #include "MouseTracker.h"
+#include "MouseParticlesEntity.h"
 #include "ProgressEntity.h"
 #include "RaceScene.h"
+#include "SkidmarkEntity.h"
 #include "TimerEntity.h"
 
 namespace ta {
@@ -24,6 +26,7 @@ namespace ta {
     void doProcessEvent(gf::Event& event) override;
     void doHandleActions(gf::Window& window) override;
     void doUpdate(gf::Time time) override;
+    void onActivityChange(bool active) override;
 
   private:
     MouseTracker m_tracker;
@@ -34,6 +37,8 @@ namespace ta {
     CarModel m_carModel;
     TimerEntity m_timer;
     ProgressEntity m_progress;
+    MouseParticlesEntity m_particles;
+    SkidmarkEntity m_skidmarks;
 
     gfb2d::PhysicsDebugger m_debug;
   };

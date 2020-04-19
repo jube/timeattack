@@ -16,6 +16,8 @@ namespace ta {
   , m_carModel(game.state)
   , m_timer(game.resources, game.state.timer)
   , m_progress(game.resources, game.atlas, game.data, game.state)
+  , m_particles(game.random)
+  , m_skidmarks(game.resources, game.state)
   , m_debug(game.state.physics)
   {
     m_debugAction.addKeycodeKeyControl(gf::Keycode::F11);
@@ -26,6 +28,8 @@ namespace ta {
     addModel(game.state.timer);
 
     addWorldEntity(m_carEntity);
+    addWorldEntity(m_skidmarks);
+    addWorldEntity(m_particles);
     addWorldEntity(m_debug);
 
     addHudEntity(m_timer);
@@ -48,9 +52,13 @@ namespace ta {
     if (m_tracker.isActive()) {
       gf::Vector2f cursorPosition = m_game.computeWindowToGameCoordinates(m_tracker.getLastPosition(), getWorldView());
       m_carModel.createAttractionFrom(cursorPosition);
+      m_particles.setActive(true);
+      m_particles.setCursorPosition(cursorPosition);
     } else {
       m_carModel.disableAttraction();
+      m_particles.setActive(false);
     }
+
   }
 
   void StageScene::doUpdate(gf::Time time) {
@@ -61,6 +69,7 @@ namespace ta {
     if (m_game.state.listener.hadCollision()) {
       m_game.state.loadPhysics(m_game.data);
       m_tracker.reset();
+      m_particles.reset();
     }
 
     gf::Vector2f position = m_game.state.physics.computePhysicsToGameCoordinates(m_game.state.car.body->GetPosition());
@@ -69,7 +78,6 @@ namespace ta {
     if (gf::squareDistance(position, target) < gf::square(TargetDistance)) {
       gf::Log::debug("Target!\n");
       m_game.state.timer.pause();
-      m_tracker.reset();
       m_game.replaceAllScenes(m_game.finish);
     }
 
@@ -78,6 +86,17 @@ namespace ta {
       m_game.replaceScene(m_game.result, m_game.checkerboard, gf::seconds(2), gf::Ease::smoother);
     }
 
+  }
+
+  void StageScene::onActivityChange(bool active) {
+    if (!active) {
+      return;
+    }
+
+    m_tracker.reset();
+    m_particles.reset();
+    m_skidmarks.reset();
+    m_game.state.timer.resume();
   }
 
 

@@ -17,8 +17,8 @@ namespace ta {
     CountdownScene(TimeAttack& game);
 
   private:
-    void doProcessEvent(gf::Event& event) override;
     void doUpdate(gf::Time time) override;
+    void onActivityChange(bool active) override;
 
   private:
     CarEntity m_car;

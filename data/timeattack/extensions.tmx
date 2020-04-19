@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.3.3" orientation="orthogonal" renderorder="right-down" width="36" height="36" tilewidth="128" tileheight="128" infinite="0" nextlayerid="16" nextobjectid="1">
+ <tileset firstgid="1" name="tileset_road_asphalt" tilewidth="128" tileheight="128" spacing="2" margin="1" tilecount="90" columns="18">
+  <image source="tileset_road_asphalt.png" width="2340" height="650"/>
+ </tileset>
+ <group id="4" name="Grass">
+  <layer id="1" name="Grass_LT" width="36" height="36">
+   <properties>
+    <property name="ground" value="asphalt"/>
+    <property name="limit" value="LT"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJzt0TkKgEAMheEUFi61CC69hcsNXO5/KV8xRcjYmiC8D34YSBMyIkRERP9TmGrUpFmJKjP/2mwa0ZRmPRrM3FuLupd3FL3DglbJ/zFqnwOdkv+jJ30T3Yb2gH30TXQXugP2ISIiIiJfD3+KBi0=
+  </data>
+  </layer>
+  <layer id="13" name="Grass_LC" width="36" height="36">
+   <properties>
+    <property name="ground" value="asphalt"/>
+    <property name="limit" value="LC"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJzt0ikOgEAMRuEKBIsmJCwewXIDlvtfil92RhESGMT7kmemFRVjBgAAgJQyV6mqaJ6rwu28bXT1aojmrerczpdq1dx4+8rf7pnUbOGfWtSa6J5N7Rb+qUOdie4BAADPXKh6BFk=
+  </data>
+  </layer>
+  <layer id="14" name="Grass_LB" width="36" height="36">
+   <properties>
+    <property name="ground" value="asphalt"/>
+    <property name="limit" value="LB"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJztzikOgEAQBdERCJYbsHgEyw0GuP+lKJJxJKNYTL2kzDfdIUiSJEl6QkkV1dT8/MulpY56Gj66WWRaaKWJ5rS9bcy000GRtrRJkqS7E6L1A6k=
+  </data>
+  </layer>
+  <layer id="15" name="Grass_BL" width="36" height="36">
+   <properties>
+    <property name="ground" value="asphalt"/>
+    <property name="limit" value="BL"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJztzrENACAMBLEsgdh/01BSfYdIYUvXXxUAAAATrdP+PXHxk/nJ/GR+Mj/Z658GN9kCEQ==
+  </data>
+  </layer>
+  <layer id="5" name="Grass_BC" width="36" height="36">
+   <properties>
+    <property name="ground" value="asphalt"/>
+    <property name="limit" value="BC"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJztzrEJACAQBMFvQuy/0zc0ukiQhxnYfKsAAACYYp3274mLn8xP5ifzk/nJXv40DpkCEQ==
+  </data>
+  </layer>
+  <layer id="6" name="Grass_BR" width="36" height="36">
+   <properties>
+    <property name="ground" value="asphalt"/>
+    <property name="limit" value="BR"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJztzrEJACAQBMFvQuy/0zc0usBEHmZg860CAABgsnXavycufjI/mZ/MT+Yne/1p5UoCEQ==
+  </data>
+  </layer>
+  <layer id="7" name="Grass_RB" width="36" height="36">
+   <properties>
+    <property name="ground" value="asphalt"/>
+    <property name="limit" value="RB"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJzt0TkKgEAMRuEUFi61CC69hcsNXO5/Kf+BlNNKEN8HDyapAmMGAAAA/FupKlWoWjWx51ivBjWrUU2x51irusw7QvqjTe0+L2r1fa63pT+61O3zoU7f5wIA4IsexfsEAQ==
+  </data>
+  </layer>
+  <layer id="8" name="Grass_RC" width="36" height="36">
+   <properties>
+    <property name="ground" value="asphalt"/>
+    <property name="limit" value="RC"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJzt0jcKgEAQRuEpLAy1CIbewnADw/0v5V+4GLCwcRfhffCKhS2GYcwAAAD+LVaJivZSlQWcp1SVavdq1QScZ1Dj6Z2r4uGf2+PXFrW+mMft0bdO9Xbck+u+R18mNdtxT67FrnsEAAD4ygavqwTN
+  </data>
+  </layer>
+  <layer id="9" name="Grass_RT" width="36" height="36">
+   <properties>
+    <property name="ground" value="asphalt"/>
+    <property name="limit" value="RT"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJztzzkOgDAMBVEXFCw3YOkpWG4Qkvtfii8lFYW7gITmSSO5s20GAACeejWUuVWdapxqm9VS5lFNanWqbVO75d8Pdb6w0xPUZfn3qNKn1wAAAAD/cgM85AOp
+  </data>
+  </layer>
+  <layer id="10" name="Grass_TR" width="36" height="36">
+   <properties>
+    <property name="ground" value="asphalt"/>
+    <property name="limit" value="TR"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJztzrEJADAMA0EvEbL/pkmbRoXBkOIO1IqvmrHu9tB3h55MT6Yn05PpyX7rAQAA4HUAvu4CEQ==
+  </data>
+  </layer>
+  <layer id="11" name="Grass_TC" width="36" height="36">
+   <properties>
+    <property name="ground" value="asphalt"/>
+    <property name="limit" value="TC"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJztzrENACAMA8Esgdh/U5jAFElBcSe5tb6qb93tgZ8pejI9mZ5MT6Yn+60HAACAtwPoLgIR
+  </data>
+  </layer>
+  <layer id="12" name="Grass_TL" width="36" height="36">
+   <properties>
+    <property name="ground" value="asphalt"/>
+    <property name="limit" value="TL"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJztzsEJACAQA8FrQuy/U60gcAeCjxnIM7BVPetuNz8v6cn0ZHoyPZme7LceAAAAZg4RfQIR
+  </data>
+  </layer>
+ </group>
+</map>

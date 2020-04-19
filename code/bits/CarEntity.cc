@@ -8,7 +8,8 @@
 namespace ta {
 
   CarEntity::CarEntity(const gf::TextureAtlas& atlas, TimeAttackState& state)
-  : m_atlas(atlas)
+  : gf::Entity(5)
+  , m_atlas(atlas)
   , m_state(state)
   {
   }

@@ -60,7 +60,7 @@
  </layer>
  <layer id="2" name="Dirt" width="36" height="36">
   <properties>
-   <property name="ground" value="dirt"/>
+   <property name="ground" value="sand"/>
   </properties>
   <data encoding="base64" compression="zlib">
    eJydlDFuxDAQA924y//fmyZFIIjDoQsDp/NK2iWHfp/nef+en+M5/3uP3/T+//o96m/r8//zrmVfuuvW31ln5zQzpRmSVrc9aeZ0Zqpt/pAe7V3qK62TDqRh67Vpm1hq81A/rV/L+OIxMUPeE3PEm8lQqmt82m9DywqdR9xZjo3vzS/id/GXamhm0p7yaO9Y8018UN+LX6QveWr4a6wtOWqafGWYNGiemnwZvVq2G2eGz2Wv6X/JVWO76dnyYnOfPEh9NBaNd2u+qDbpS36TJzYj5Oft/HYP6WZyYWZuXtBc7VzDWcul9bRlpeV24droYvebbwbV3/T/mp81B8SL4TOdSWti5faedCGNDAfWt8a8mXudo83S/DeetX5svlO99XfJL/G67DM5NXmk+9dcNh7S+Su3lLPkGelKcy25av6kveu9NKP5NtC5y9MySex+8dH6ZbS+7fsFaz8qoA==
@@ -68,7 +68,7 @@
  </layer>
  <layer id="3" name="Sand" width="36" height="36">
   <properties>
-   <property name="ground" value="sand"/>
+   <property name="ground" value="dirt"/>
   </properties>
   <data encoding="base64" compression="zlib">
    eJyllEtuwzAUA3OV7nL/EwYFujLEmVG6MCDLNsXHj9+v1+vn73o/1u/D/un56R26f+I+sU7nLw6nb4j3ev95nZ6vOW70O+0vbRaftSYc091wTZtvOBAW7d9gk87kw8lXwl8ZLvjUq9K52lX7nnRaM5I+5kPxvebQ/gNLH/KsdHBhGL+qs/lpPEpXLRPGZ+WBskDdoT3LtmlTMkje1Y5S7otXNcfWncrRcluybp4sXPuecrdmXzoVfivHNDfNYN0q/am5K1xqXojn6utth0pvaeai9+qZ6W08FpZp+02XbrQwvKV/maF0knQrvbntW+lx9ZHeNV2sb4ZrMxaNqUek+X/0rb6ZRsULyyxltWhIvNbZxH/pXM5YvSp61n9A6RZ5fNMly2zJU5nLfCi5poxZp0nPmr16Eb55XPBoPtO/3FOWb2czTxYenWF9WJ2l3BOPbzQ0/Zd3hTvx/l1/AA00uWo=

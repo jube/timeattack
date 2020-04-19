@@ -23,17 +23,18 @@ namespace ta {
     addHudEntity(m_progress);
   }
 
-  void CountdownScene::doProcessEvent(gf::Event& event) {
-
-  }
-
   void CountdownScene::doUpdate(gf::Time time) {
     if (m_countdown.isFinished()) {
-      m_countdown.reset();
-      m_game.state.timer.resume();
       m_game.replaceScene(m_game.stage);
     }
   }
 
+  void CountdownScene::onActivityChange(bool active) {
+    if (!active) {
+      return;
+    }
+
+    m_countdown.reset();
+  }
 }
 

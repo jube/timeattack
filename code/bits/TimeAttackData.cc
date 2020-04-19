@@ -68,7 +68,6 @@ namespace ta {
         // tiles
 
         terrain.tiles = gf::makeTileLayer(map, layer, m_resources);
-
         m_terrains.emplace_back(std::move(terrain));
       }
 
@@ -77,6 +76,50 @@ namespace ta {
       gf::ResourceManager& m_resources;
     };
 
+    struct ExtensionVisitor : public gf::TmxVisitor {
+      ExtensionVisitor(std::vector<ExtensionData>& extensions, gf::ResourceManager& resources)
+      : m_extensions(extensions)
+      , m_resources(resources)
+      {
+      }
+
+      void visitTileLayer(const gf::TmxLayers& map, const gf::TmxTileLayer& layer) override {
+        gf::Log::info("Layer: '%s'\n", layer.name.c_str());
+
+        ExtensionData extension;
+
+        // ground
+
+        std::string ground = layer.properties.getStringProperty("ground", "");
+
+        if (ground.empty()) {
+          gf::Log::error("Missing 'ground' in a tile layer: '%s'\n", layer.name.c_str());
+          return;
+        }
+
+        extension.ground = getGroundFromString(ground);
+
+        // limit
+
+        std::string limit = layer.properties.getStringProperty("limit", "");
+
+        if (limit.empty()) {
+          gf::Log::error("Missing 'limit' in a tile layer: '%s'\n", layer.name.c_str());
+          return;
+        }
+
+        extension.limit = getStageLimitFromString(limit);
+
+        // tiles
+
+        extension.tiles = gf::makeTileLayer(map, layer, m_resources);
+        m_extensions.emplace_back(std::move(extension));
+      }
+
+    private:
+      std::vector<ExtensionData>& m_extensions;
+      gf::ResourceManager& m_resources;
+    };
 
     struct TimeAttackTmxVisitor : public gf::TmxVisitor {
       TimeAttackTmxVisitor(std::vector<RaceData>& races, gf::ResourceManager& resources)
@@ -212,6 +255,13 @@ namespace ta {
       layers.loadFromFile(resources.getAbsolutePath("ground.tmx"));
       layers.visitLayers(visitor);
     }
+
+    {
+      ExtensionVisitor visitor(extensions, resources);
+      gf::TmxLayers layers;
+      layers.loadFromFile(resources.getAbsolutePath("extensions.tmx"));
+      layers.visitLayers(visitor);
+    }
   }
 
   std::size_t TimeAttackData::findRace(RaceDifficulty difficulty, RaceGround ground) const {
@@ -232,6 +282,16 @@ namespace ta {
     for (auto& terrain : terrains) {
       if (terrain.ground == ground) {
         return &terrain;
+      }
+    }
+
+    return nullptr;
+  }
+
+  ExtensionData *TimeAttackData::findExtension(RaceGround ground, StageLimit limit) {
+    for (auto& extension : extensions) {
+      if (extension.ground == ground && extension.limit == limit) {
+        return &extension;
       }
     }
 

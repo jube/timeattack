@@ -11,7 +11,8 @@
 namespace ta {
 
   StageEntity::StageEntity(TimeAttackData& data, const TimeAttackState& state, Which which)
-  : m_data(data)
+  : gf::Entity(-5)
+  , m_data(data)
   , m_state(state)
   , m_which(which)
   {
@@ -32,12 +33,33 @@ namespace ta {
     assert(currentStage < race.stages.size());
     auto& stage = race.stages[currentStage];
 
+    gf::Vector2f base = gf::vec(12, 12) * TileSize;
+
+    // terrain
+
     auto terrain = m_data.findTerrain(race.ground);
     assert(terrain != nullptr);
 
-    gf::Vector2f base = gf::vec(12, 12) * TileSize;
     terrain->tiles.setOrigin(base);
     target.draw(terrain->tiles, states);
+
+    // extensions
+
+    auto extensionStart = m_data.findExtension(race.ground, stage.start);
+
+    if (extensionStart) {
+      extensionStart->tiles.setOrigin(base);
+      target.draw(extensionStart->tiles, states);
+    }
+
+    auto extensionFinish = m_data.findExtension(race.ground, stage.finish);
+
+    if (extensionFinish) {
+      extensionFinish->tiles.setOrigin(base);
+      target.draw(extensionFinish->tiles, states);
+    }
+
+    // road
 
     target.draw(stage.tiles, states);
 

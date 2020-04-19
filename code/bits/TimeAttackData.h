@@ -30,14 +30,22 @@ namespace ta {
     gf::TileLayer tiles;
   };
 
+  struct ExtensionData {
+    RaceGround ground;
+    StageLimit limit;
+    gf::TileLayer tiles;
+  };
+
   struct TimeAttackData {
     TimeAttackData(gf::ResourceManager& resources);
 
     std::vector<RaceData> races;
     std::vector<TerrainData> terrains;
+    std::vector<ExtensionData> extensions;
 
     std::size_t findRace(RaceDifficulty difficulty, RaceGround ground) const;
     TerrainData *findTerrain(RaceGround ground);
+    ExtensionData *findExtension(RaceGround ground, StageLimit limit);
   };
 
 }
