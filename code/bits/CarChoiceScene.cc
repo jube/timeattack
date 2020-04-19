@@ -9,17 +9,10 @@
 namespace ta {
 
   CarChoiceScene::CarChoiceScene(TimeAttack& game)
-  : gf::Scene(game.getRenderer().getSize())
-  , m_game(game)
-  , m_escapeAction("Escape")
+  : IntroScene(game)
   , m_choice(game.resources, game.atlas)
   , m_back(game.resources)
   {
-    setClearColor(gf::Color::White);
-
-    m_escapeAction.addKeycodeKeyControl(gf::Keycode::Escape);
-    addAction(m_escapeAction);
-
     addHudEntity(m_choice);
     addHudEntity(m_back);
   }
@@ -44,6 +37,10 @@ namespace ta {
   }
 
   void CarChoiceScene::doHandleActions(gf::Window& window) {
+    if (m_fullscreenAction.isActive()) {
+      window.toggleFullscreen();
+    }
+
     if (m_escapeAction.isActive()) {
       m_game.replaceScene(m_game.menu, m_game.fade, gf::milliseconds(200));
     }

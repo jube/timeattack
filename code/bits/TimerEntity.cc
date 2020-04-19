@@ -21,7 +21,8 @@ namespace ta {
     gf::Coordinates coords(target);
 
     float seconds = m_model.getRemainingTime().asSeconds();
-    std::string timerString = gf::niceNum(seconds, 0.01f);
+
+    std::string timerString = seconds <= 0.0f ? "0.00" : gf::niceNum(seconds, 0.01f);
 
     unsigned characterSize = coords.getRelativeCharacterSize(0.08f);
 

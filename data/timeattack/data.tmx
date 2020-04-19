@@ -80,8 +80,12 @@
   </data>
   </layer>
  </group>
- <group id="33" name="Race_Asphalt_Medium" visible="0">
-  <layer id="4" name="SS04" width="12" height="12" visible="0">
+ <group id="33" name="Race_Asphalt_Medium">
+  <properties>
+   <property name="difficulty" value="medium"/>
+   <property name="ground" value="asphalt"/>
+  </properties>
+  <layer id="4" name="SS04" width="12" height="12">
    <properties>
     <property name="finish" value="BL"/>
     <property name="start" value="TR"/>

@@ -16,8 +16,13 @@ namespace ta {
   private:
     void doHandleActions(gf::Window& window) override;
 
-  private:
+  protected:
+    void handleActionsCommon(gf::Window& window);
+
+  protected:
     TimeAttack& m_game;
+
+  private:
     gf::Action m_fullscreenAction;
     gf::Action m_escapeAction;
     StageEntity m_stage;

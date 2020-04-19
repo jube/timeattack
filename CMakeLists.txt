@@ -37,6 +37,7 @@ add_executable(timeattack
   code/bits/CarModel.cc
   code/bits/CarEntity.cc
   code/bits/CheckeredEntity.cc
+  code/bits/ContinueEntity.cc
   code/bits/CountdownEntity.cc
   code/bits/CountdownScene.cc
   code/bits/FinishScene.cc
@@ -50,6 +51,8 @@ add_executable(timeattack
   code/bits/RaceChoiceEntity.cc
   code/bits/RaceChoiceScene.cc
   code/bits/RaceScene.cc
+  code/bits/ResultScene.cc
+  code/bits/ResultEntity.cc
   code/bits/StageEntity.cc
   code/bits/StageLimit.cc
   code/bits/StageScene.cc

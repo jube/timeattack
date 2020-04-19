@@ -10,18 +10,12 @@
 namespace ta {
 
   CountdownScene::CountdownScene(TimeAttack& game)
-  : gf::Scene(game.getRenderer().getSize())
-  , m_game(game)
+  : RaceScene(game)
   , m_car(game.atlas, game.state)
   , m_countdown(game.resources)
   , m_timer(game.resources, game.state.timer)
   , m_progress(game.resources, game.atlas, game.data, game.state)
   {
-    setClearColor(gf::Color::fromRgba32(0x27, 0xAE, 0x60));
-
-    setWorldViewSize(ViewSize);
-    setWorldViewCenter(ViewSize / 2);
-
     addWorldEntity(m_countdown);
     addWorldEntity(m_car);
 
@@ -30,10 +24,6 @@ namespace ta {
   }
 
   void CountdownScene::doProcessEvent(gf::Event& event) {
-
-  }
-
-  void CountdownScene::doHandleActions(gf::Window& window) {
 
   }
 

@@ -7,35 +7,32 @@ namespace ta {
   , resources({ searchDirectory })
   , atlas("spritesheet_vehicles.xml", resources)
   , data(resources)
-  , intro(*this)
   , menu(*this)
   , carChoice(*this)
   , raceChoice(*this)
   , help(*this)
-  , race(*this)
   , countdown(*this)
   , stage(*this)
   , finish(*this)
+  , result(*this)
   {
     startIntro();
   }
 
 
   void TimeAttack::startIntro() {
-    gf::Ref<gf::Scene> scenes[] = { gf::ref(intro), gf::ref(menu) };
-    pushScenes(scenes);
+    pushScene(menu);
   }
 
   void TimeAttack::setupRace(std::size_t raceIndex) {
     state.currentRace = raceIndex;
     state.currentStage = 0;
-    state.timer.reset(gf::seconds(60.0f));
+    state.timer.reset(gf::seconds(15.0f));
   }
 
   void TimeAttack::startRace() {
     state.loadPhysics(data);
-    gf::Ref<gf::Scene> scenes[] = { gf::ref(race), gf::ref(countdown) };
-    replaceAllScenes(scenes, zoomBlur, gf::seconds(1));
+    replaceScene(countdown, zoomBlur, gf::seconds(1));
   }
 
 }

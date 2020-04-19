@@ -5,13 +5,14 @@
 #include <gf/Scene.h>
 
 #include "BackEntity.h"
+#include "IntroScene.h"
 #include "RaceChoiceEntity.h"
 
 namespace ta {
 
   struct TimeAttack;
 
-  class RaceChoiceScene : public gf::Scene {
+  class RaceChoiceScene : public IntroScene {
   public:
     RaceChoiceScene(TimeAttack& game);
 
@@ -21,10 +22,6 @@ namespace ta {
     void doUpdate(gf::Time time) override;
 
   private:
-    TimeAttack& m_game;
-
-    gf::Action m_escapeAction;
-
     RaceChoiceEntity m_choice;
     BackEntity m_back;
   };

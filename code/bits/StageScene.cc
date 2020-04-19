@@ -1,5 +1,7 @@
 #include "StageScene.h"
 
+#include <gf/Easings.h>
+
 #include "Settings.h"
 #include "TimeAttack.h"
 
@@ -8,8 +10,7 @@
 namespace ta {
 
   StageScene::StageScene(TimeAttack& game)
-  : gf::Scene(game.getRenderer().getSize())
-  , m_game(game)
+  : RaceScene(game)
   , m_debugAction("Debug")
   , m_carEntity(game.atlas, game.state)
   , m_carModel(game.state)
@@ -17,13 +18,8 @@ namespace ta {
   , m_progress(game.resources, game.atlas, game.data, game.state)
   , m_debug(game.state.physics)
   {
-    setClearColor(gf::Color::fromRgba32(0x27, 0xAE, 0x60));
-
     m_debugAction.addKeycodeKeyControl(gf::Keycode::F11);
     addAction(m_debugAction);
-
-    setWorldViewSize(ViewSize);
-    setWorldViewCenter(ViewSize / 2);
 
     addModel(m_carModel);
     addModel(m_game.state.physics);
@@ -43,6 +39,8 @@ namespace ta {
   }
 
   void StageScene::doHandleActions(gf::Window& window) {
+    handleActionsCommon(window);
+
     if (m_debugAction.isActive()) {
       m_debug.toggleDebug();
     }
@@ -56,12 +54,14 @@ namespace ta {
   }
 
   void StageScene::doUpdate(gf::Time time) {
+    if (!isActive()) {
+      return;
+    }
+
     if (m_game.state.listener.hadCollision()) {
       m_game.state.loadPhysics(m_game.data);
       m_tracker.reset();
     }
-
-    // TODO: check timer
 
     gf::Vector2f position = m_game.state.physics.computePhysicsToGameCoordinates(m_game.state.car.body->GetPosition());
     gf::Vector2f target = getTarget(m_game.data.races[m_game.state.currentRace].stages[m_game.state.currentStage].finish);
@@ -72,6 +72,12 @@ namespace ta {
       m_tracker.reset();
       m_game.replaceAllScenes(m_game.finish);
     }
+
+    if (m_game.state.timer.isFinished()) {
+      gf::Log::debug("Out of time!\n");
+      m_game.replaceScene(m_game.result, m_game.checkerboard, gf::seconds(2), gf::Ease::smoother);
+    }
+
   }
 
 

@@ -41,8 +41,7 @@ namespace ta {
       m_game.startRace();
     } else {
       gf::Log::debug("The end!\n");
-      m_game.popAllScenes();
-      m_game.startIntro();
+      m_game.replaceScene(m_game.result, m_game.zoomBlur, gf::seconds(1));
     }
   }
 

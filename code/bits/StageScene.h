@@ -9,13 +9,14 @@
 #include "CarModel.h"
 #include "MouseTracker.h"
 #include "ProgressEntity.h"
+#include "RaceScene.h"
 #include "TimerEntity.h"
 
 namespace ta {
 
   struct TimeAttack;
 
-  class StageScene : public gf::Scene {
+  class StageScene : public RaceScene {
   public:
     StageScene(TimeAttack& game);
 
@@ -25,7 +26,6 @@ namespace ta {
     void doUpdate(gf::Time time) override;
 
   private:
-    TimeAttack& m_game;
     MouseTracker m_tracker;
     gf::Action m_debugAction;
 

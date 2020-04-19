@@ -11,10 +11,9 @@
 #include "CountdownScene.h"
 #include "FinishScene.h"
 #include "HelpScene.h"
-#include "IntroScene.h"
 #include "MenuScene.h"
 #include "RaceChoiceScene.h"
-#include "RaceScene.h"
+#include "ResultScene.h"
 #include "StageScene.h"
 #include "TimeAttackData.h"
 #include "TimeAttackState.h"
@@ -34,19 +33,20 @@ namespace ta {
     TimeAttackState state;
 
     // scenes
-    IntroScene intro;
     MenuScene menu;
     CarChoiceScene carChoice;
     RaceChoiceScene raceChoice;
     HelpScene help;
-    RaceScene race;
+
     CountdownScene countdown;
     StageScene stage;
     FinishScene finish;
+    ResultScene result;
 
     // segues
     gf::FadeSegueEffect fade;
     gf::ZoomBlurSegueEffect zoomBlur;
+    gf::CheckerboardSegueEffect checkerboard;
 
     void startIntro();
 

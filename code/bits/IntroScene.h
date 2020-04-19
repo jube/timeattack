@@ -15,13 +15,15 @@ namespace ta {
     IntroScene(TimeAttack& game);
 
   private:
-    void doHandleActions(gf::Window& window) override;
+    void doRender(gf::RenderTarget& target, const gf::RenderStates &states) override;
 
-  private:
+  protected:
     TimeAttack& m_game;
 
     gf::Action m_fullscreenAction;
+    gf::Action m_escapeAction;
 
+  private:
     CheckeredEntity m_checkered;
   };
 

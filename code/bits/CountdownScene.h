@@ -6,23 +6,21 @@
 #include "CarEntity.h"
 #include "CountdownEntity.h"
 #include "ProgressEntity.h"
+#include "RaceScene.h"
 #include "TimerEntity.h"
 
 namespace ta {
   struct TimeAttack;
 
-  class CountdownScene : public gf::Scene {
+  class CountdownScene : public RaceScene {
   public:
     CountdownScene(TimeAttack& game);
 
   private:
     void doProcessEvent(gf::Event& event) override;
-    void doHandleActions(gf::Window& window) override;
     void doUpdate(gf::Time time) override;
 
   private:
-    TimeAttack& m_game;
-
     CarEntity m_car;
     CountdownEntity m_countdown;
     TimerEntity m_timer;

@@ -4,6 +4,7 @@
 #include <gf/ResourceManager.h>
 #include <gf/Scene.h>
 
+#include "IntroScene.h"
 #include "MenuEntity.h"
 #include "TrafficEntity.h"
 
@@ -11,7 +12,7 @@ namespace ta {
 
   struct TimeAttack;
 
-  class MenuScene : public gf::Scene {
+  class MenuScene : public IntroScene {
   public:
     MenuScene(TimeAttack& game);
 
@@ -21,10 +22,6 @@ namespace ta {
     void doUpdate(gf::Time time) override;
 
   private:
-    TimeAttack& m_game;
-
-    gf::Action m_escapeAction;
-
     TrafficEntity m_traffic;
     MenuChoice m_choice;
     MenuEntity m_menu;

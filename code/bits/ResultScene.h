@@ -1,19 +1,19 @@
-#ifndef TA_HELP_SCENE_H
-#define TA_HELP_SCENE_H
+#ifndef TA_RESULT_SCENE_H
+#define TA_RESULT_SCENE_H
 
 #include <gf/Scene.h>
 
-#include "BackEntity.h"
-#include "HelpEntity.h"
+#include "ContinueEntity.h"
 #include "IntroScene.h"
+#include "ResultEntity.h"
 
 namespace ta {
 
   struct TimeAttack;
 
-  class HelpScene : public IntroScene {
+  class ResultScene : public IntroScene {
   public:
-    HelpScene(TimeAttack& game);
+    ResultScene(TimeAttack& game);
 
   private:
     void doProcessEvent(gf::Event& event) override;
@@ -21,10 +21,11 @@ namespace ta {
     void doUpdate(gf::Time time) override;
 
   private:
-    HelpEntity m_help;
-    BackEntity m_back;
+    ResultEntity m_result;
+    ContinueEntity m_continue;
   };
 
 }
 
-#endif // TA_HELP_SCENE_H
+
+#endif // TA_RESULT_SCENE_H

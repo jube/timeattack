@@ -9,25 +9,13 @@
 namespace ta {
 
   MenuScene::MenuScene(TimeAttack& game)
-  : gf::Scene(game.getRenderer().getSize())
-  , m_game(game)
-  , m_escapeAction("Escape")
+  : IntroScene(game)
   , m_traffic(game.atlas, game.random)
   , m_choice(MenuChoice::None)
   , m_menu(game.resources, m_choice)
   {
-    setClearColor(gf::Color::White);
-
-    m_escapeAction.addKeycodeKeyControl(gf::Keycode::Escape);
-    addAction(m_escapeAction);
-
-    setWorldViewSize(IntroView.getSize());
-    setWorldViewCenter(IntroView.getCenter());
-
     addWorldEntity(m_traffic);
-
     addHudEntity(m_menu);
-
   }
 
   void MenuScene::doProcessEvent(gf::Event& event) {
@@ -47,6 +35,10 @@ namespace ta {
   }
 
   void MenuScene::doHandleActions(gf::Window& window) {
+    if (m_fullscreenAction.isActive()) {
+      window.toggleFullscreen();
+    }
+
     if (m_escapeAction.isActive()) {
       m_game.popAllScenes();
     }

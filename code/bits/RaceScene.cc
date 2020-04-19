@@ -27,6 +27,10 @@ namespace ta {
   }
 
   void RaceScene::doHandleActions(gf::Window& window) {
+    handleActionsCommon(window);
+  }
+
+  void RaceScene::handleActionsCommon(gf::Window& window) {
     if (m_fullscreenAction.isActive()) {
       window.toggleFullscreen();
     }
@@ -36,4 +40,5 @@ namespace ta {
       m_game.startIntro();
     }
   }
+
 }
