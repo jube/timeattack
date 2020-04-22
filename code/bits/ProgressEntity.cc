@@ -47,8 +47,16 @@ namespace ta {
 
     const float length = coords.getRelativeSize({ 0.0f, 0.05f }).height;
     const float spacing = length / 10;
+    const float padding = length / 5;
 
     float textureScale = length / TileExtent;
+
+    gf::RectF back = gf::RectF::fromPositionSize(roadPosition - length / 2 - padding, gf::vec(length + 2 * padding, stageCount * length + (stageCount - 1) * spacing + 2 * padding));
+
+    gf::RoundedRectangleShape shape(back);
+    shape.setColor(gf::Color::Gray() * gf::Color::Opaque(0.7f));
+    shape.setRadius(padding);
+    target.draw(shape, states);
 
     for (std::size_t i = 0; i < stageCount; ++i) {
       gf::Sprite sprite;

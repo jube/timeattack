@@ -10,6 +10,34 @@
 
 namespace ta {
 
+  namespace {
+
+    gf::Vector2f getStageOffset(StageLimit limit) {
+      switch (limit) {
+        case StageLimit::LeftTop:
+        case StageLimit::LeftCenter:
+        case StageLimit::LeftBottom:
+          return -1.0f * gf::dirx(TileExtent * GroundExtent);
+        case StageLimit::TopLeft:
+        case StageLimit::TopCenter:
+        case StageLimit::TopRight:
+          return -1.0f * gf::diry(TileExtent * GroundExtent);
+        case StageLimit::RightTop:
+        case StageLimit::RightCenter:
+        case StageLimit::RightBottom:
+          return 1.0f * gf::dirx(TileExtent * GroundExtent);
+        case StageLimit::BottomLeft:
+        case StageLimit::BottomCenter:
+        case StageLimit::BottomRight:
+          return 1.0f * gf::diry(TileExtent * GroundExtent);
+      }
+
+      assert(false);
+      return gf::vec(0.0f, 0.0f);
+    }
+
+  }
+
   StageEntity::StageEntity(TimeAttackData& data, const TimeAttackState& state, Which which)
   : gf::Entity(-5)
   , m_data(data)
@@ -45,22 +73,53 @@ namespace ta {
 
     // extensions
 
-    auto extensionStart = m_data.findExtension(race.ground, stage.start);
+    {
+      std::ptrdiff_t i = currentStage;
+      gf::Vector2f offset = gf::vec(0.0f, 0.0f);
 
-    if (extensionStart) {
-      extensionStart->tiles.setOrigin(base);
-      target.draw(extensionStart->tiles, states);
+      while (i > 0) {
+        offset += getStageOffset(race.stages[i].start);
+        --i;
+        race.stages[i].tiles.setPosition(offset);
+        target.draw(race.stages[i].tiles, states);
+      }
+
+      assert(i == 0);
+      auto extension = m_data.findExtension(race.ground, race.stages[0].start);
+
+      if (extension) {
+        extension->tiles.setPosition(offset);
+        extension->tiles.setOrigin(base);
+        target.draw(extension->tiles, states);
+      }
     }
 
-    auto extensionFinish = m_data.findExtension(race.ground, stage.finish);
+    {
+      std::ptrdiff_t i = currentStage;
+      std::ptrdiff_t max = race.stages.size() - 1;
+      gf::Vector2f offset = gf::vec(0.0f, 0.0f);
 
-    if (extensionFinish) {
-      extensionFinish->tiles.setOrigin(base);
-      target.draw(extensionFinish->tiles, states);
+      while (i < max) {
+        offset += getStageOffset(race.stages[i].finish);
+        ++i;
+        race.stages[i].tiles.setPosition(offset);
+        target.draw(race.stages[i].tiles, states);
+      }
+
+      assert(i == max);
+      auto extension = m_data.findExtension(race.ground, race.stages[max].finish);
+
+      if (extension) {
+        extension->tiles.setPosition(offset);
+        extension->tiles.setOrigin(base);
+        target.draw(extension->tiles, states);
+      }
     }
+
 
     // road
 
+    stage.tiles.setPosition(gf::vec(0.0f, 0.0f));
     target.draw(stage.tiles, states);
 
 #if 0
