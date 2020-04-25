@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.3" orientation="orthogonal" renderorder="right-down" width="36" height="36" tilewidth="128" tileheight="128" infinite="0" nextlayerid="16" nextobjectid="1">
+<map version="1.2" tiledversion="1.3.3" orientation="orthogonal" renderorder="right-down" width="36" height="36" tilewidth="128" tileheight="128" infinite="0" nextlayerid="42" nextobjectid="1">
  <tileset firstgid="1" name="tileset_road_asphalt" tilewidth="128" tileheight="128" spacing="2" margin="1" tilecount="90" columns="18">
   <image source="tileset_road_asphalt.png" width="2340" height="650"/>
+ </tileset>
+ <tileset firstgid="91" name="tileset_road_sand" tilewidth="128" tileheight="128" spacing="2" margin="1" tilecount="90" columns="18">
+  <image source="tileset_road_sand.png" width="2340" height="650"/>
+ </tileset>
+ <tileset firstgid="181" name="tileset_road_dirt" tilewidth="128" tileheight="128" spacing="2" margin="1" tilecount="90" columns="18">
+  <image source="tileset_road_dirt.png" width="2340" height="650"/>
  </tileset>
  <group id="4" name="Grass">
   <layer id="1" name="Grass_LT" width="36" height="36">
@@ -110,6 +116,226 @@
    </properties>
    <data encoding="base64" compression="zlib">
    eJztzsEJACAQA8FrQuy/U60gcAeCjxnIM7BVPetuNz8v6cn0ZHoyPZme7LceAAAAZg4RfQIR
+  </data>
+  </layer>
+ </group>
+ <group id="16" name="Sand">
+  <layer id="18" name="Sand_LT" width="36" height="36">
+   <properties>
+    <property name="ground" value="sand"/>
+    <property name="limit" value="LT"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJztw0EJAAAIBDCTGsbkZriHD2GDVQHAPx2+NmEAAIAvFofHCoE=
+  </data>
+  </layer>
+  <layer id="19" name="Sand_LC" width="36" height="36">
+   <properties>
+    <property name="ground" value="sand"/>
+    <property name="limit" value="LC"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJztwzEJAAAIADCTGsbkZvAQQTZYBAAAl3J4Ww0DAPBbA/4FCoE=
+  </data>
+  </layer>
+  <layer id="20" name="Sand_LB" width="36" height="36">
+   <properties>
+    <property name="ground" value="sand"/>
+    <property name="limit" value="LB"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJztwzEJAAAIADCTGsbkBvAS9NtgEQAAADdy+VstAwBTA3RSCoE=
+  </data>
+  </layer>
+  <layer id="21" name="Sand_BL" width="36" height="36">
+   <properties>
+    <property name="ground" value="sand"/>
+    <property name="limit" value="BL"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJztziEOACAMBMH+mPB/UyTqHKFiJlm/VQAAAEy0Tvv3xMVP5ifzk/nJ/GSvfxptLAqB
+  </data>
+  </layer>
+  <layer id="22" name="Sand_BC" width="36" height="36">
+   <properties>
+    <property name="ground" value="sand"/>
+    <property name="limit" value="BC"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJztzjEKACAMBMH8WPx/E0urqwQJzMD2WwUAAMAU67R/T1z8ZH4yP5mfzE/28qcBmx0KgQ==
+  </data>
+  </layer>
+  <layer id="23" name="Sand_BR" width="36" height="36">
+   <properties>
+    <property name="ground" value="sand"/>
+    <property name="limit" value="BR"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJztziEOACAMBMH+mPB/UyTqBIY0mUnWbxUAAACTrdP+PXHxk/nJ/GR+Mj/Z608DyQ4KgQ==
+  </data>
+  </layer>
+  <layer id="24" name="Sand_RB" width="36" height="36">
+   <properties>
+    <property name="ground" value="sand"/>
+    <property name="limit" value="RB"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJztw0EJAAAIBDCTGsbkZriHD2GDVQEAAPzQ4WsTBoCPFoQWCoE=
+  </data>
+  </layer>
+  <layer id="25" name="Sand_RC" width="36" height="36">
+   <properties>
+    <property name="ground" value="sand"/>
+    <property name="limit" value="RC"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJztwzEJAAAIADCTGsbkZvAQQTZYBAAAn+XwthoGAOBWAw3YCoE=
+  </data>
+  </layer>
+  <layer id="26" name="Sand_RT" width="36" height="36">
+   <properties>
+    <property name="ground" value="sand"/>
+    <property name="limit" value="RT"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJztw7ENAAAEADCXOsbldpuErU0aAQBMufytlgEAAK40l4sKgQ==
+  </data>
+  </layer>
+  <layer id="27" name="Sand_TR" width="36" height="36">
+   <properties>
+    <property name="ground" value="sand"/>
+    <property name="limit" value="TR"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJztzjEKACAQA8H7sfj/RlubFAcHFjOQNmzVjHW3h7479GR6Mj2ZnkxP9lsPAAAArwORYAqB
+  </data>
+  </layer>
+  <layer id="28" name="Sand_TC" width="36" height="36">
+   <properties>
+    <property name="ground" value="sand"/>
+    <property name="limit" value="TC"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJztzrENACAMA8FsjNi/gQlMkRQUd5Jb66v61t0e+JmiJ9OT6cn0ZHqy33oAAAB4O2NvCoE=
+  </data>
+  </layer>
+  <layer id="17" name="Sand_TL" width="36" height="36">
+   <properties>
+    <property name="ground" value="sand"/>
+    <property name="limit" value="TL"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJzt0TkKgFAMRdG/VodaBIcdOOzAYbO+dBYifESS4h64ZeBBUsrTqDbz5k/R9kxqVpWqnbeYTe1qUKPzlrtof2PPO/Y8K1SpFrU6bzGd6tWhTuctJsqfAAAAAADfXE0VDuk=
+  </data>
+  </layer>
+ </group>
+ <group id="29" name="Dirt">
+  <layer id="31" name="Dirt_LT" width="36" height="36">
+   <properties>
+    <property name="ground" value="dirt"/>
+    <property name="limit" value="LT"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJztw0EJAAAIBDD7JzKMYcxwDx/CBqsCgH86fG3CAAAAXyxdKBLx
+  </data>
+  </layer>
+  <layer id="32" name="Dirt_LC" width="36" height="36">
+   <properties>
+    <property name="ground" value="dirt"/>
+    <property name="limit" value="LC"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJztwzEJAAAIADD7JzKMYczgIYJssAgAAC7l8LYaBgDgtwYXDRLx
+  </data>
+  </layer>
+  <layer id="33" name="Dirt_LB" width="36" height="36">
+   <properties>
+    <property name="ground" value="dirt"/>
+    <property name="limit" value="LB"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJztwzEJAAAIADD7JzKMYQzgJei3wSIAAABu5PK3WgYApgbQ4xLx
+  </data>
+  </layer>
+  <layer id="34" name="Dirt_BL" width="36" height="36">
+   <properties>
+    <property name="ground" value="dirt"/>
+    <property name="limit" value="BL"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJztzrENACAMBLHsvxliqVBSfYdIYUvXXxUAAAATrdP+PXHxk/nJ/GR+Mj/Z658Gon8S8Q==
+  </data>
+  </layer>
+  <layer id="35" name="Dirt_BC" width="36" height="36">
+   <properties>
+    <property name="ground" value="dirt"/>
+    <property name="limit" value="BC"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJztzrEJACAQBMHvvzOxqTc0ukiQhxnYfKsAAACYYp3274mLn8xP5ifzk/nJXv40J7AS8Q==
+  </data>
+  </layer>
+  <layer id="36" name="Dirt_BR" width="36" height="36">
+   <properties>
+    <property name="ground" value="dirt"/>
+    <property name="limit" value="BR"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJztzrEJACAQBMHvvzOxqTc0usBEHmZg860CAABgsnXavycufjI/mZ/MT+Yne/1prNIS8Q==
+  </data>
+  </layer>
+  <layer id="37" name="Dirt_RB" width="36" height="36">
+   <properties>
+    <property name="ground" value="dirt"/>
+    <property name="limit" value="RB"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJztw0EJAAAIBDD7JzKMYcxwDx/CBqsCAAD4ocPXJgwAHy22ehLx
+  </data>
+  </layer>
+  <layer id="38" name="Dirt_RC" width="36" height="36">
+   <properties>
+    <property name="ground" value="dirt"/>
+    <property name="limit" value="RC"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJztwzEJAAAIADD7JzKMYczgIYJssAgAAD7L4W01DADArQb8lRLx
+  </data>
+  </layer>
+  <layer id="39" name="Dirt_RT" width="36" height="36">
+   <properties>
+    <property name="ground" value="dirt"/>
+    <property name="limit" value="RT"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJztwzEJAAAIADD7JzKMYfz9BP02WAQAMOXyt1oGAAC40kK/EvE=
+  </data>
+  </layer>
+  <layer id="40" name="Dirt_TR" width="36" height="36">
+   <properties>
+    <property name="ground" value="dirt"/>
+    <property name="limit" value="TR"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJztzrEJADAMA0Hvv1nIUkmbRoXBkOIO1IqvmrHu9tB3h55MT6Yn05PpyX7rAQAA4HUAY9IS8Q==
+  </data>
+  </layer>
+  <layer id="41" name="Dirt_TC" width="36" height="36">
+   <properties>
+    <property name="ground" value="dirt"/>
+    <property name="limit" value="TC"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJztzrENACAMA8HsvxliKZjAFElBcSe5tb6qb93tgZ8pejI9mZ5MT6Yn+60HAACAtwPeoRLx
+  </data>
+  </layer>
+  <layer id="30" name="Dirt_TL" width="36" height="36">
+   <properties>
+    <property name="ground" value="dirt"/>
+    <property name="limit" value="TL"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJztzsEJACAQA8HrvzOxKa0gcAeCjxnIM7BVPetuNz8v6cn0ZHoyPZme7LceAAAAZg5ZfxLx
   </data>
   </layer>
  </group>

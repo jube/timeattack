@@ -84,7 +84,7 @@ namespace ta {
       }
 
       void visitTileLayer(const gf::TmxLayers& map, const gf::TmxTileLayer& layer) override {
-        gf::Log::info("Layer: '%s'\n", layer.name.c_str());
+//         gf::Log::info("Layer: '%s'\n", layer.name.c_str());
 
         ExtensionData extension;
 
@@ -172,7 +172,7 @@ namespace ta {
       }
 
       void visitTileLayer(const gf::TmxLayers& map, const gf::TmxTileLayer& layer) override {
-        gf::Log::info("Layer: '%s'\n", layer.name.c_str());
+//         gf::Log::info("Layer: '%s'\n", layer.name.c_str());
 
         if (m_current == nullptr) {
           gf::Log::warning("Layer '%s' is not in a group!\n", layer.name.c_str());
