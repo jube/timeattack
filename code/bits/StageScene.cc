@@ -11,6 +11,7 @@ namespace ta {
 
   StageScene::StageScene(TimeAttack& game)
   : RaceScene(game)
+  , m_pauseAction("Pause")
   , m_debugAction("Debug")
   , m_carEntity(game.atlas, game.state)
   , m_carModel(game.state)
@@ -20,6 +21,9 @@ namespace ta {
   , m_skidmarks(game.resources, game.state)
   , m_debug(game.state.physics)
   {
+    m_pauseAction.addKeycodeKeyControl(gf::Keycode::Space);
+    addAction(m_pauseAction);
+
     m_debugAction.addKeycodeKeyControl(gf::Keycode::F11);
     addAction(m_debugAction);
 
@@ -44,6 +48,15 @@ namespace ta {
 
   void StageScene::doHandleActions(gf::Window& window) {
     handleActionsCommon(window);
+
+    if (m_pauseAction.isActive()) {
+      if (isActive()) {
+        pause();
+        m_game.pushScene(m_game.pause);
+      } else {
+        m_game.popScene();
+      }
+    }
 
     if (m_debugAction.isActive()) {
       m_debug.toggleDebug();

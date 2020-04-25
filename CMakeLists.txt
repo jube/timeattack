@@ -48,6 +48,8 @@ add_executable(timeattack
   code/bits/MenuScene.cc
   code/bits/MouseTracker.cc
   code/bits/MouseParticlesEntity.cc
+  code/bits/PauseEntity.cc
+  code/bits/PauseScene.cc
   code/bits/ProgressEntity.cc
   code/bits/RaceChoiceEntity.cc
   code/bits/RaceChoiceScene.cc

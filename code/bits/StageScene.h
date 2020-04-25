@@ -30,6 +30,7 @@ namespace ta {
 
   private:
     MouseTracker m_tracker;
+    gf::Action m_pauseAction;
     gf::Action m_debugAction;
 
 

@@ -12,6 +12,7 @@
 #include "FinishScene.h"
 #include "HelpScene.h"
 #include "MenuScene.h"
+#include "PauseScene.h"
 #include "RaceChoiceScene.h"
 #include "ResultScene.h"
 #include "StageScene.h"
@@ -42,6 +43,7 @@ namespace ta {
     StageScene stage;
     FinishScene finish;
     ResultScene result;
+    PauseScene pause;
 
     // segues
     gf::FadeSegueEffect fade;

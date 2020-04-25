@@ -15,6 +15,7 @@ namespace ta {
   , stage(*this)
   , finish(*this)
   , result(*this)
+  , pause(*this)
   {
     startIntro();
   }
