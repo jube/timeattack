@@ -74,7 +74,7 @@ namespace ta {
     // extensions
 
     {
-      std::ptrdiff_t i = currentStage;
+      std::size_t i = currentStage;
       gf::Vector2f offset = gf::vec(0.0f, 0.0f);
 
       while (i > 0) {
@@ -95,8 +95,8 @@ namespace ta {
     }
 
     {
-      std::ptrdiff_t i = currentStage;
-      std::ptrdiff_t max = race.stages.size() - 1;
+      std::size_t i = currentStage;
+      std::size_t max = race.stages.size() - 1;
       gf::Vector2f offset = gf::vec(0.0f, 0.0f);
 
       while (i < max) {
