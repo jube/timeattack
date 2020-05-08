@@ -57,6 +57,7 @@ namespace ta {
         m_game.replaceScene(m_game.help, m_game.fade, gf::milliseconds(200));
         break;
       case MenuChoice::Credits:
+        m_game.replaceScene(m_game.credit, m_game.fade, gf::milliseconds(200));
         break;
       case MenuChoice::Quit:
         m_game.popAllScenes();

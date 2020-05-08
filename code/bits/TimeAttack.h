@@ -9,6 +9,7 @@
 
 #include "CarChoiceScene.h"
 #include "CountdownScene.h"
+#include "CreditScene.h"
 #include "FinishScene.h"
 #include "HelpScene.h"
 #include "MenuScene.h"
@@ -38,6 +39,7 @@ namespace ta {
     CarChoiceScene carChoice;
     RaceChoiceScene raceChoice;
     HelpScene help;
+    CreditScene credit;
 
     CountdownScene countdown;
     StageScene stage;

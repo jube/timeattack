@@ -40,6 +40,8 @@ add_executable(timeattack
   code/bits/ContinueEntity.cc
   code/bits/CountdownEntity.cc
   code/bits/CountdownScene.cc
+  code/bits/CreditEntity.cc
+  code/bits/CreditScene.cc
   code/bits/FinishScene.cc
   code/bits/HelpEntity.cc
   code/bits/HelpScene.cc

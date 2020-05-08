@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.3" orientation="orthogonal" renderorder="right-down" width="12" height="12" tilewidth="128" tileheight="128" infinite="0" nextlayerid="65" nextobjectid="1">
+<map version="1.2" tiledversion="1.3.3" orientation="orthogonal" renderorder="right-down" width="12" height="12" tilewidth="128" tileheight="128" infinite="0" nextlayerid="66" nextobjectid="1">
  <tileset firstgid="1" name="asphalt" tilewidth="128" tileheight="128" spacing="2" margin="1" tilecount="90" columns="18">
   <image source="tileset_road_asphalt.png" width="2340" height="650"/>
  </tileset>
@@ -346,18 +346,27 @@
   </data>
   </layer>
  </group>
- <group id="50" name="Race_Dirt_Challenging" visible="0">
+ <group id="50" name="Race_Dirt_Challenging">
   <properties>
    <property name="difficulty" value="challenging"/>
    <property name="ground" value="dirt"/>
   </properties>
+  <layer id="65" name="SS07" width="12" height="12">
+   <properties>
+    <property name="finish" value="LC"/>
+    <property name="start" value="TL"/>
+   </properties>
+   <data encoding="base64" compression="zlib">
+   eJyF0LsKwkAQheF50hTGexMEjdcqhZdCazWF+AjiC+Yv9sCwjHHhI7CTnTm7lZktMECJIUb2e73wxhIr1FhjhjmKRH2q1F/fI07Y44AmUR/Vz7jgjgeuuLmcef2JNsirnKp/XLbozpqvva/Llt/Z3HztjTHBNLi75hUu/wZb7IL/Na9x+ZXP98jP+aV8UQ+d/7f63rgDtyY5ZA==
+  </data>
+  </layer>
   <layer id="56" name="SS06" width="12" height="12" visible="0">
    <properties>
     <property name="finish" value="BL"/>
     <property name="start" value="LC"/>
    </properties>
    <data encoding="base64" compression="zlib">
-   eJx10UkKAkEMQNE+qQtnW0EE51YXLhzaceksHkG8oL8hgRCqCt4iSUFCkiThV0YFJVFFLVBro4M+BliKIUby39bmWGCDrdTraKApcY4d9jjhjBvuUh9jgqnEDzzxisxuexXx1+X87LZXEf9croseWkgju7G5FdbIMIvsxuYuuOKAo9uH9vYz6B38PvSfn0Hv4Hf0xicwg97B7+gPpJM7zw==
+   eJx10ccKQkEMheF5UheWhQVEsCwsCxf2cpd28RHEF/S/kAMhzA18i8kMmZCklI86GqiZJlqZuy56GGKEpRljYu/93RwLbLB1tXQuY4c9DjijwA13V0vnMh544pXpz9dNlvuGvO/P102W+4V8HwO00amYjc+tsMYUs4rZ+NwFVxxxCvPQ37EH7SHOQ+9iD9qD9qt5vPHJ9KA9aL+axx++ejxD
   </data>
   </layer>
   <layer id="55" name="SS05" width="12" height="12" visible="0">

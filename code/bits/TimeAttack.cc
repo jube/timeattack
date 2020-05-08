@@ -11,6 +11,7 @@ namespace ta {
   , carChoice(*this)
   , raceChoice(*this)
   , help(*this)
+  , credit(*this)
   , countdown(*this)
   , stage(*this)
   , finish(*this)
