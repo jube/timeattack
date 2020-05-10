@@ -2,6 +2,26 @@
 
 namespace ta {
 
+  namespace {
+
+    constexpr
+    gf::Time getInitialTimeFromDifficulty(RaceDifficulty difficulty) {
+      switch (difficulty) {
+        case RaceDifficulty::Easy:
+          return gf::seconds(30);
+        case RaceDifficulty::Medium:
+          return gf::seconds(40);
+        case RaceDifficulty::Hard:
+          return gf::seconds(50);
+        case RaceDifficulty::Challenging:
+          return gf::seconds(60);
+      }
+
+      return gf::seconds(5);
+    }
+
+  }
+
   TimeAttack::TimeAttack(gf::Path searchDirectory)
   : gf::SceneManager("Time Attack!", gf::vec(1280, 720))
   , resources({ searchDirectory })
@@ -29,7 +49,7 @@ namespace ta {
   void TimeAttack::setupRace(std::size_t raceIndex) {
     state.currentRace = raceIndex;
     state.currentStage = 0;
-    state.timer.reset(gf::seconds(60.0f));
+    state.timer.reset(getInitialTimeFromDifficulty(data.races[state.currentRace].difficulty));
     state.chrono.startRace();
   }
 

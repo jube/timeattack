@@ -3,6 +3,11 @@
 #include <algorithm>
 
 namespace ta {
+
+  namespace {
+    constexpr gf::Time MaxTime = gf::seconds(60);
+  }
+
   TimerModel::TimerModel()
   : m_running(false)
   {
@@ -10,12 +15,12 @@ namespace ta {
 
   void TimerModel::reset(gf::Time time) {
     m_running = false;
-    m_starting = m_remaining = time;
+    m_remaining = time;
   }
 
   void TimerModel::addTime(gf::Time time) {
     m_remaining += time;
-    m_remaining = std::min(m_remaining, m_starting);
+    m_remaining = std::min(m_remaining, MaxTime);
   }
 
   bool TimerModel::isFinished() const {
