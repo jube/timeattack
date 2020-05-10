@@ -12,6 +12,22 @@ using namespace gf::literals;
 namespace ta {
 
   namespace {
+
+    float computePolylineLength(const gf::Polyline& line) {
+      assert(line.isLoop());
+
+      float length = 0;
+      gf::Vector2f previous = line.getPrevPoint(0);
+
+      for (auto current : line) {
+        length += gf::euclideanDistance(previous, current);
+        previous = current;
+      }
+
+      return length;
+    }
+
+
     RaceDifficulty getDifficultyFromString(const std::string& str) {
       switch (gf::hash(str)) {
         case "easy"_id:
@@ -228,6 +244,7 @@ namespace ta {
         }
 
         stage.line = info.computeLine();
+        gf::Log::info("%s: %.0f\n", layer.name.c_str(), computePolylineLength(stage.line));
         m_current->stages.push_back(std::move(stage));
       }
 
