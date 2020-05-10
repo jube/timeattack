@@ -19,7 +19,7 @@ namespace ta {
   void ResultEntity::render(gf::RenderTarget& target, const gf::RenderStates& states) {
     gf::Coordinates coords(target);
 
-    auto position = coords.getCenter();
+    auto position = coords.getRelativePoint({ 0.5f, 0.1f });
     auto characterSize = coords.getRelativeCharacterSize(0.1f);
     auto screenSize = coords.getRelativeSize({ 1.0f, 1.0f });
 
@@ -41,7 +41,7 @@ namespace ta {
     text.setOutlineThickness(characterSize * 0.05f);
     text.setFont(m_font);
     text.setPosition(position);
-    text.setAnchor(gf::Anchor::Center);
+    text.setAnchor(gf::Anchor::TopCenter);
     target.draw(text, states);
   }
 

@@ -13,7 +13,7 @@ namespace ta {
       "* The car follows the cursor when you hold the left button.\n"
       "* If you hit a border, you start the stage again.\n"
       "* Finish all the stages before the end of the time.\n"
-      "* Additional keys: F for fullscreen, Space to pause, Backspace to quit."
+      "* Additional keys: F for fullscreen, Space to pause, Escape to quit."
     ;
   }
 

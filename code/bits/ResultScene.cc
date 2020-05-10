@@ -8,9 +8,11 @@ namespace ta {
   : IntroScene(game)
   , m_result(game.resources, game.data, game.state)
   , m_continue(game.resources)
+  , m_chrono(game.resources, game.data, game.state)
   {
     addHudEntity(m_result);
     addHudEntity(m_continue);
+    addHudEntity(m_chrono);
   }
 
   void ResultScene::doProcessEvent(gf::Event& event) {

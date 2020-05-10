@@ -29,4 +29,4 @@ namespace ta {
 
 }
 
-#endif // TA_BACK_ENTITY_H
+#endif // TA_CONTINUE_ENTITY_H

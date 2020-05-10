@@ -30,11 +30,13 @@ namespace ta {
     state.currentRace = raceIndex;
     state.currentStage = 0;
     state.timer.reset(gf::seconds(60.0f));
+    state.chrono.startRace();
   }
 
   void TimeAttack::startRace() {
     state.loadPhysics(data);
     replaceScene(countdown, zoomBlur, gf::seconds(1));
+    state.chrono.startStage();
   }
 
 }

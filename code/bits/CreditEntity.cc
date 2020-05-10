@@ -11,7 +11,7 @@ namespace ta {
 
     constexpr auto CreditText =
       "Coded by Julien Bernard for his daughter Abbygaëlle during the 2020 lockdown for the 'Confinement' game jam.\n"
-      "Graphics by Kenney (kenney.nl)"
+      "Graphics by Kenney (kenney.nl)\n"
     ;
   }
 
@@ -27,14 +27,14 @@ namespace ta {
     float paragraphWidth = coords.getRelativeSize({ 0.6f, 0.0f }).width;
     auto position = coords.getRelativePoint({ 0.5f, 0.4f });
 
-    gf::Text help(CreditText, m_font, characterSize);
-    help.setColor(gf::Color::Black);
-    help.setParagraphWidth(paragraphWidth);
-    help.setAlignment(gf::Alignment::Left);
-    help.setLineSpacing(1.2f);
-    help.setPosition(position);
-    help.setAnchor(gf::Anchor::Center);
-    target.draw(help, states);
+    gf::Text credit(CreditText, m_font, characterSize);
+    credit.setColor(gf::Color::Black);
+    credit.setParagraphWidth(paragraphWidth);
+    credit.setAlignment(gf::Alignment::Left);
+    credit.setLineSpacing(1.2f);
+    credit.setPosition(position);
+    credit.setAnchor(gf::Anchor::Center);
+    target.draw(credit, states);
   }
 
 

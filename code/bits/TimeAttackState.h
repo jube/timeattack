@@ -5,6 +5,7 @@
 
 #include <gfb2d/PhysicsModel.h>
 
+#include "ChronoModel.h"
 #include "TimerModel.h"
 #include "Settings.h"
 
@@ -51,6 +52,7 @@ namespace ta {
     CarState car;
 
     TimerModel timer;
+    ChronoModel chrono;
   };
 
 }

@@ -37,6 +37,8 @@ add_executable(timeattack
   code/bits/CarModel.cc
   code/bits/CarEntity.cc
   code/bits/CheckeredEntity.cc
+  code/bits/ChronoEntity.cc
+  code/bits/ChronoModel.cc
   code/bits/ContinueEntity.cc
   code/bits/CountdownEntity.cc
   code/bits/CountdownScene.cc

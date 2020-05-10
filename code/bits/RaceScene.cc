@@ -36,8 +36,8 @@ namespace ta {
     }
 
     if (m_escapeAction.isActive()) {
-      m_game.popAllScenes();
-      m_game.startIntro();
+      pause();
+      m_game.replaceAllScenes(m_game.result, m_game.fade, gf::milliseconds(200));
     }
   }
 

@@ -3,6 +3,7 @@
 
 #include <gf/Scene.h>
 
+#include "ChronoEntity.h"
 #include "ContinueEntity.h"
 #include "IntroScene.h"
 #include "ResultEntity.h"
@@ -23,6 +24,7 @@ namespace ta {
   private:
     ResultEntity m_result;
     ContinueEntity m_continue;
+    ChronoEntity m_chrono;
   };
 
 }

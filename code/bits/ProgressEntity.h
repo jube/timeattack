@@ -7,8 +7,8 @@
 #include <gf/TextureAtlas.h>
 
 namespace ta {
-  struct TimeAttackState;
   struct TimeAttackData;
+  struct TimeAttackState;
 
   class ProgressEntity : public gf::Entity {
   public:

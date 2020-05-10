@@ -30,6 +30,7 @@ namespace ta {
     addModel(m_carModel);
     addModel(m_game.state.physics);
     addModel(game.state.timer);
+    addModel(game.state.chrono);
 
     addWorldEntity(m_carEntity);
     addWorldEntity(m_skidmarks);
