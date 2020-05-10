@@ -22,6 +22,7 @@ namespace ta {
   private:
     bool m_running;
     gf::Time m_remaining;
+    gf::Time m_starting;
   };
 
 

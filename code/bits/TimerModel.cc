@@ -1,5 +1,7 @@
 #include "TimerModel.h"
 
+#include <algorithm>
+
 namespace ta {
   TimerModel::TimerModel()
   : m_running(false)
@@ -8,11 +10,12 @@ namespace ta {
 
   void TimerModel::reset(gf::Time time) {
     m_running = false;
-    m_remaining = time;
+    m_starting = m_remaining = time;
   }
 
   void TimerModel::addTime(gf::Time time) {
     m_remaining += time;
+    m_remaining = std::min(m_remaining, m_starting);
   }
 
   bool TimerModel::isFinished() const {

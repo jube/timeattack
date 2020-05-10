@@ -1,10 +1,32 @@
 #include "FinishScene.h"
 
+#include <cassert>
+
 #include "TimeAttack.h"
 
 #include <gf/Log.h>
 
 namespace ta {
+
+  namespace {
+
+    constexpr
+    gf::Time getAdditionalTimeFromDifficulty(RaceDifficulty difficulty) {
+      switch (difficulty) {
+        case RaceDifficulty::Easy:
+          return gf::seconds(20);
+        case RaceDifficulty::Medium:
+          return gf::seconds(15);
+        case RaceDifficulty::Hard:
+          return gf::seconds(10);
+        case RaceDifficulty::Challenging:
+          return gf::seconds(5);
+      }
+
+      return gf::seconds(5);
+    }
+
+  }
 
   FinishScene::FinishScene(TimeAttack& game)
   : gf::Scene(game.getRenderer().getSize())
@@ -37,7 +59,7 @@ namespace ta {
 
     if (m_game.state.currentStage < m_game.data.races[m_game.state.currentRace].stages.size()) {
       gf::Log::debug("Next!\n");
-      m_game.state.timer.addTime(gf::seconds(5.0f));
+      m_game.state.timer.addTime(getAdditionalTimeFromDifficulty(m_game.data.races[m_game.state.currentRace].difficulty));
       m_game.startRace();
     } else {
       gf::Log::debug("The end!\n");
