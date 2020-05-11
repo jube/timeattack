@@ -26,7 +26,7 @@ namespace ta {
 
   TimeAttack::TimeAttack(gf::Path searchDirectory)
   : gf::SceneManager("Time Attack!", gf::vec(1280, 720))
-  , resources({ searchDirectory, gf::Paths::getBasePath() })
+  , resources({ searchDirectory, gf::Paths::getBasePath() / "assets" })
   , atlas("spritesheet_vehicles.xml", resources)
   , data(resources)
   , menu(*this)
