@@ -7,17 +7,35 @@ namespace ta {
   namespace {
 
     constexpr
-    gf::Time getInitialTimeFromDifficulty(RaceDifficulty difficulty) {
-      switch (difficulty) {
-        case RaceDifficulty::Easy:
-          return gf::seconds(30);
-        case RaceDifficulty::Medium:
-          return gf::seconds(40);
-        case RaceDifficulty::Hard:
-          return gf::seconds(50);
-        case RaceDifficulty::Challenging:
-          return gf::seconds(60);
+    gf::Time getInitialTimeFromDifficulty(RaceDifficulty difficulty, RaceGround ground) {
+      switch (ground) {
+        case RaceGround::Sand:
+          switch (difficulty) {
+            case RaceDifficulty::Easy:
+              return gf::seconds(45);
+            case RaceDifficulty::Medium:
+              return gf::seconds(50);
+            case RaceDifficulty::Hard:
+              return gf::seconds(55);
+            case RaceDifficulty::Challenging:
+              return gf::seconds(60);
+          }
+          break;
+        case RaceGround::Dirt:
+        case RaceGround::Asphalt:
+          switch (difficulty) {
+            case RaceDifficulty::Easy:
+              return gf::seconds(30);
+            case RaceDifficulty::Medium:
+              return gf::seconds(40);
+            case RaceDifficulty::Hard:
+              return gf::seconds(50);
+            case RaceDifficulty::Challenging:
+              return gf::seconds(60);
+          }
+          break;
       }
+
 
       return gf::seconds(5);
     }
@@ -51,7 +69,7 @@ namespace ta {
   void TimeAttack::setupRace(std::size_t raceIndex) {
     state.currentRace = raceIndex;
     state.currentStage = 0;
-    state.timer.reset(getInitialTimeFromDifficulty(data.races[state.currentRace].difficulty));
+    state.timer.reset(getInitialTimeFromDifficulty(data.races[state.currentRace].difficulty, data.races[state.currentRace].ground));
     state.chrono.startRace();
   }
 

@@ -11,16 +11,33 @@ namespace ta {
   namespace {
 
     constexpr
-    gf::Time getAdditionalTimeFromDifficulty(RaceDifficulty difficulty) {
-      switch (difficulty) {
-        case RaceDifficulty::Easy:
-          return gf::seconds(20);
-        case RaceDifficulty::Medium:
-          return gf::seconds(15);
-        case RaceDifficulty::Hard:
-          return gf::seconds(10);
-        case RaceDifficulty::Challenging:
-          return gf::seconds(5);
+    gf::Time getAdditionalTimeFromDifficulty(RaceDifficulty difficulty, RaceGround ground) {
+      switch (ground) {
+        case RaceGround::Sand:
+        case RaceGround::Dirt:
+          switch (difficulty) {
+            case RaceDifficulty::Easy:
+              return gf::seconds(25);
+            case RaceDifficulty::Medium:
+              return gf::seconds(20);
+            case RaceDifficulty::Hard:
+              return gf::seconds(15);
+            case RaceDifficulty::Challenging:
+              return gf::seconds(10);
+          }
+          break;
+        case RaceGround::Asphalt:
+          switch (difficulty) {
+            case RaceDifficulty::Easy:
+              return gf::seconds(20);
+            case RaceDifficulty::Medium:
+              return gf::seconds(15);
+            case RaceDifficulty::Hard:
+              return gf::seconds(10);
+            case RaceDifficulty::Challenging:
+              return gf::seconds(5);
+          }
+          break;
       }
 
       return gf::seconds(5);
@@ -59,7 +76,8 @@ namespace ta {
 
     if (m_game.state.currentStage < m_game.data.races[m_game.state.currentRace].stages.size()) {
       gf::Log::debug("Next!\n");
-      m_game.state.timer.addTime(getAdditionalTimeFromDifficulty(m_game.data.races[m_game.state.currentRace].difficulty));
+      auto& race = m_game.data.races[m_game.state.currentRace];
+      m_game.state.timer.addTime(getAdditionalTimeFromDifficulty(race.difficulty, race.ground));
       m_game.startRace();
     } else {
       gf::Log::debug("The end!\n");
