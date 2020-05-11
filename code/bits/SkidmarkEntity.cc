@@ -17,7 +17,7 @@ namespace ta {
   }
 
   SkidmarkEntity::SkidmarkEntity(gf::ResourceManager& resources, TimeAttackState& state)
-  : gf::Entity(0)
+  : gf::Entity(1)
   , m_texture(resources.getTexture("skidmark.png"))
   , m_state(state)
   {

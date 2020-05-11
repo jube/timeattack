@@ -97,6 +97,7 @@ namespace ta {
 
     if (m_game.state.timer.isFinished()) {
       gf::Log::debug("Out of time!\n");
+      pause();
       m_game.replaceScene(m_game.result, m_game.checkerboard, gf::seconds(2), gf::Ease::smoother);
     }
 
