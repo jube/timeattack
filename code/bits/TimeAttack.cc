@@ -1,5 +1,7 @@
 #include "TimeAttack.h"
 
+#include <gf/Paths.h>
+
 namespace ta {
 
   namespace {
@@ -24,7 +26,7 @@ namespace ta {
 
   TimeAttack::TimeAttack(gf::Path searchDirectory)
   : gf::SceneManager("Time Attack!", gf::vec(1280, 720))
-  , resources({ searchDirectory })
+  , resources({ searchDirectory, gf::Paths::getBasePath() })
   , atlas("spritesheet_vehicles.xml", resources)
   , data(resources)
   , menu(*this)
