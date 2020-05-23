@@ -29,6 +29,22 @@ namespace ta {
         }
         break;
 
+      case gf::EventType::TouchBegan:
+        m_position = event.touch.coords;
+        m_buttonPressed = true;
+        break;
+
+      case gf::EventType::TouchEnded:
+        m_position = event.touch.coords;
+        m_buttonPressed = false;
+        break;
+
+      case gf::EventType::TouchMoved:
+        if (m_buttonPressed) {
+          m_position = event.touch.coords;
+        }
+        break;
+
       default:
         break;
     }
