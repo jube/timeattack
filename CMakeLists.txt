@@ -87,7 +87,7 @@ target_include_directories(timeattack
 
 target_link_libraries(timeattack
   PRIVATE
-    gf::gf0
+    gf::graphics
     ${BOX2D_LIBRARIES}
 )
 
