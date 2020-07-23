@@ -3,6 +3,7 @@
 #include <cassert>
 
 #include <gf/Geometry.h>
+#include <gf/Log.h>
 #include <gf/VectorOps.h>
 
 #include "Settings.h"

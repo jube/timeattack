@@ -1,6 +1,7 @@
 #include "TimeAttackData.h"
 
 #include <gf/Id.h>
+#include <gf/Log.h>
 #include <gf/Tmx.h>
 #include <gf/TmxOps.h>
 
