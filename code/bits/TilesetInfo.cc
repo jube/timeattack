@@ -605,6 +605,7 @@ namespace ta {
   gf::Polyline TilesetInfo::computeLine() const {
     auto lines = gf::buildLines(m_segments);
     assert(lines.size() == 1);
+    assert(lines[0].isLoop());
     return std::move(lines[0]);
   }
 

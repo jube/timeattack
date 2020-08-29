@@ -9,7 +9,7 @@ include(GNUInstallDirs)
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/vendor/gf-box2d/modules")
 
 find_package(gf REQUIRED)
-find_package(Box2D REQUIRED)
+find_package(box2d REQUIRED)
 
 set(TIMEATTACK_DATADIR "${CMAKE_INSTALL_FULL_DATAROOTDIR}/games/timeattack")
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/code/config.h.in ${CMAKE_CURRENT_BINARY_DIR}/config.h @ONLY)
@@ -81,14 +81,13 @@ target_include_directories(timeattack
 #     ${CMAKE_CURRENT_SOURCE_DIR}/code
 #     ${CMAKE_CURRENT_SOURCE_DIR}/code/bits
     "${CMAKE_CURRENT_BINARY_DIR}"
-    "${BOX2D_INCLUDE_DIR}"
     "${CMAKE_CURRENT_SOURCE_DIR}/vendor/gf-box2d"
 )
 
 target_link_libraries(timeattack
   PRIVATE
     gf::graphics
-    ${BOX2D_LIBRARIES}
+    box2d::box2d
 )
 
 install(

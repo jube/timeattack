@@ -1,5 +1,6 @@
 #include "StageEntity.h"
 
+#include <gf/Curves.h>
 #include <gf/RenderTarget.h>
 #include <gf/Shapes.h>
 
@@ -121,6 +122,19 @@ namespace ta {
 
     stage.tiles.setPosition(gf::vec(0.0f, 0.0f));
     target.draw(stage.tiles, states);
+
+#if 0
+    gf::CompoundCurve curve(stage.line.getPoint(0));
+
+    for (std::size_t i = 1; i < stage.line.getPointCount(); ++i) {
+      curve.lineTo(stage.line.getPoint(i));
+    }
+
+    curve.close();
+    curve.setColor(gf::Color::Red);
+    curve.setWidth(5.0f);
+    target.draw(curve, states);
+#endif
 
 #if 0
     gf::CircleShape shape(TargetDistance);
