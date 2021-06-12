@@ -1,6 +1,8 @@
 #ifndef TA_SKIDMARK_ENTITY_H
 #define TA_SKIDMARK_ENTITY_H
 
+#include <deque>
+
 #include <gf/Entity.h>
 #include <gf/ResourceManager.h>
 
