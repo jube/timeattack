@@ -60,7 +60,6 @@ namespace ta {
 
     for (std::size_t i = 0; i < stageCount; ++i) {
       gf::Sprite sprite;
-      sprite.setTextureRect(gf::RectF::fromPositionSize({ 0.0f, 0.0f }, 1.0f / TileCount));
 
       switch (m_data.races[m_state.currentRace].ground) {
         case RaceGround::Sand:
@@ -73,6 +72,8 @@ namespace ta {
           sprite.setTexture(m_asphaltTexture);
           break;
       }
+
+      sprite.setTextureRect(gf::RectF::fromPositionSize({ 0.0f, 0.0f }, 1.0f / TileCount));
 
       if (stageCount - i - 1 > currentStage) {
         sprite.setColor(gf::Color::Opaque(0.5f));

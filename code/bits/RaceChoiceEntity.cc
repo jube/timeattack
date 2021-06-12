@@ -83,7 +83,6 @@ namespace ta {
 
     for (int i = 0; i < GroundCount; ++i) {
       gf::Sprite sprite;
-      sprite.setTextureRect(gf::RectF::fromPositionSize({ 0.0f, 0.0f }, 1.0f / TileCount));
 
       switch (Grounds[i]) {
         case RaceGround::Sand:
@@ -97,6 +96,7 @@ namespace ta {
           break;
       }
 
+      sprite.setTextureRect(gf::RectF::fromPositionSize({ 0.0f, 0.0f }, 1.0f / TileCount));
       sprite.setScale(textureScale);
       sprite.setAnchor(gf::Anchor::Center);
 
