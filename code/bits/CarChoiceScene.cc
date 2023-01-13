@@ -1,8 +1,5 @@
 #include "CarChoiceScene.h"
 
-#include <gf/Log.h>
-#include <gf/Unused.h>
-
 #include "Settings.h"
 #include "TimeAttack.h"
 
@@ -46,9 +43,7 @@ namespace ta {
     }
   }
 
-  void CarChoiceScene::doUpdate(gf::Time time) {
-    gf::unused(time);
-
+  void CarChoiceScene::doUpdate([[maybe_unused]] gf::Time time) {
     if (m_back.hasPressedBack()) {
       m_game.replaceScene(m_game.menu, m_game.fade, gf::milliseconds(200));
     }

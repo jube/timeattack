@@ -75,7 +75,7 @@ namespace ta {
 
   }
 
-  void StageScene::doUpdate(gf::Time time) {
+  void StageScene::doUpdate([[maybe_unused]] gf::Time time) {
     if (!isActive()) {
       return;
     }

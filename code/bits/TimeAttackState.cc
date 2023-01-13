@@ -20,7 +20,7 @@ namespace ta {
     return m_collision;
   }
 
-  void PhysicsListener::BeginContact(b2Contact* contact) {
+  void PhysicsListener::BeginContact([[maybe_unused]] b2Contact* contact) {
     gf::Log::debug("Contact!\n");
     m_collision = true;
   }

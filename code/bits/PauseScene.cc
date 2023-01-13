@@ -30,7 +30,7 @@ namespace ta {
     }
   }
 
-  void PauseScene::doUpdate(gf::Time time) {
+  void PauseScene::doUpdate([[maybe_unused]] gf::Time time) {
     if (m_continue.hasPressedContinue()) {
       m_game.popScene();
     }

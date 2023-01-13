@@ -1,8 +1,5 @@
 #include "IntroScene.h"
 
-#include <gf/Log.h>
-#include <gf/Unused.h>
-
 #include "Settings.h"
 #include "TimeAttack.h"
 

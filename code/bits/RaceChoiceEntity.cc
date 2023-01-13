@@ -50,7 +50,7 @@ namespace ta {
     return choice;
   }
 
-  void RaceChoiceEntity::update(gf::Time time) {
+  void RaceChoiceEntity::update([[maybe_unused]] gf::Time time) {
   }
 
   void RaceChoiceEntity::render(gf::RenderTarget& target, const gf::RenderStates& states) {

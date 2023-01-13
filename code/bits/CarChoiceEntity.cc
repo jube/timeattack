@@ -58,7 +58,7 @@ namespace ta {
     return choice;
   }
 
-  void CarChoiceEntity::update(gf::Time time) {
+  void CarChoiceEntity::update([[maybe_unused]] gf::Time time) {
   }
 
   void CarChoiceEntity::render(gf::RenderTarget& target, const gf::RenderStates& states) {

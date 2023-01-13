@@ -41,7 +41,7 @@ namespace ta {
     }
   }
 
-  void ResultScene::doUpdate(gf::Time time) {
+  void ResultScene::doUpdate([[maybe_unused]] gf::Time time) {
     if (m_continue.hasPressedContinue()) {
       m_game.replaceScene(m_game.menu, m_game.fade, gf::milliseconds(200));
     }

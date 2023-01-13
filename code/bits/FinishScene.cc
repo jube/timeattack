@@ -61,13 +61,13 @@ namespace ta {
     addHudEntity(m_timer);
   }
 
-  void FinishScene::doProcessEvent(gf::Event& event) {
+  void FinishScene::doProcessEvent([[maybe_unused]] gf::Event& event) {
   }
 
-  void FinishScene::doHandleActions(gf::Window& window) {
+  void FinishScene::doHandleActions([[maybe_unused]] gf::Window& window) {
   }
 
-  void FinishScene::doUpdate(gf::Time time) {
+  void FinishScene::doUpdate([[maybe_unused]] gf::Time time) {
     if (!isActive()) {
       return;
     }

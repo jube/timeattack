@@ -1,8 +1,5 @@
 #include "MenuScene.h"
 
-#include <gf/Log.h>
-#include <gf/Unused.h>
-
 #include "Settings.h"
 #include "TimeAttack.h"
 
@@ -44,9 +41,7 @@ namespace ta {
     }
   }
 
-  void MenuScene::doUpdate(gf::Time time) {
-    gf::unused(time);
-
+  void MenuScene::doUpdate([[maybe_unused]] gf::Time time) {
     switch (m_choice) {
       case MenuChoice::None:
         break;

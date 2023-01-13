@@ -23,7 +23,7 @@ namespace ta {
     addHudEntity(m_progress);
   }
 
-  void CountdownScene::doUpdate(gf::Time time) {
+  void CountdownScene::doUpdate([[maybe_unused]] gf::Time time) {
     if (m_countdown.isFinished()) {
       m_game.replaceScene(m_game.stage);
     }
