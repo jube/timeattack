@@ -1,6 +1,10 @@
 #ifndef TA_CONFIG_H
 #define TA_CONFIG_H
 
-#define TIMEATTACK_DATADIR "@TIMEATTACK_DATADIR@"
+#include <string_view>
+
+namespace ta {
+  constexpr std::string_view TimeAttackDataDirectory =  R"(@TIMEATTACK_DATADIR@)";
+}
 
 #endif // TA_CONFIG_H

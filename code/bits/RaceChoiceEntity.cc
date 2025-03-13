@@ -44,7 +44,7 @@ namespace ta {
     auto choice = std::exchange(m_choice, NoChoice);
 
     if (choice != NoChoice) {
-      m_cursor = gf::vec(0.0f, 0.0);
+      m_cursor = gf::vec(0.0f, 0.0f);
     }
 
     return choice;
@@ -69,7 +69,7 @@ namespace ta {
 
     gf::Vector2f base = coords.getRelativePoint({ 0.5f, 0.25f });
     const float length = coords.getRelativeSize({ 0.0f, 0.12f }).height;
-    const float spacing = length / 2.5;
+    const float spacing = length / 2.5f;
 
     float textureScale = length / TileExtent;
 

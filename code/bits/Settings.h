@@ -7,7 +7,7 @@
 
 namespace ta {
 
-  constexpr float PhysicsScale = 0.02;
+  constexpr float PhysicsScale = 0.02f;
 
   constexpr int GroundExtent = 12;
   constexpr gf::Vector2i GroundSize = gf::vec(GroundExtent, GroundExtent);

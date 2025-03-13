@@ -3,7 +3,7 @@
 #include "config.h"
 
 int main() {
-  ta::TimeAttack game(TIMEATTACK_DATADIR);
+  ta::TimeAttack game(ta::TimeAttackDataDirectory);
   game.run();
   return 0;
 }
